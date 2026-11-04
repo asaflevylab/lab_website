@@ -1,0 +1,194 @@
+/* Levy lab - structural stylesheet.
+ *
+ * Scope on purpose: this carries the Wix site's palette and type across and lays
+ * the pages out readably. It is NOT the design pass - no new visual identity is
+ * invented here, because the look is still an open question with Erez.
+ *
+ * Colour rules that are not negotiable, from measured contrast against white:
+ *   indigo   #3D4DAD  7.33:1  - body text, links, headings: fine
+ *   grey-mid #666666  5.59:1  - secondary text: fine
+ *   green    #51985C  3.50:1  - BELOW the 4.5:1 AA floor for normal text, so it
+ *                               is used only for rules, borders and large text.
+ */
+
+:root {
+  --black: #000000;
+  --grey-dark: #333333;
+  --grey-mid: #666666;
+  --grey-line: #E6E7E8;
+  --indigo: #3D4DAD;
+  --indigo-tint: #F2F4FA;
+  --green: #51985C;
+  --white: #ffffff;
+
+  --font-heading: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Figtree", -apple-system, "Segoe UI", sans-serif;
+
+  --measure: 68ch;      /* line length that stays readable for prose */
+  --gutter: 1.25rem;
+  --max-width: 72rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--grey-dark);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--black);
+  line-height: 1.25;
+  margin: 2rem 0 0.75rem;
+}
+h1 { font-size: clamp(1.9rem, 1.4rem + 2vw, 2.875rem); }  /* Wix H1 was 46px */
+h2 { font-size: clamp(1.35rem, 1.1rem + 1vw, 1.75rem); }
+h3 { font-size: 1.0625rem; }
+
+a { color: var(--indigo); }
+a:hover { text-decoration: none; }
+
+/* Visible focus everywhere: the default outline disappears against the indigo. */
+:focus-visible {
+  outline: 3px solid var(--indigo);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  background: var(--indigo);
+  color: var(--white);
+  padding: 0.6rem 1rem;
+  z-index: 10;
+}
+.skip-link:focus { left: var(--gutter); top: var(--gutter); }
+
+/* ---- header / nav ---- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem var(--gutter);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem var(--gutter) 1rem;
+  border-bottom: 2px solid var(--grey-line);
+}
+.site-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  color: var(--black);
+  text-decoration: none;
+  margin-right: auto;
+}
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-nav a {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--grey-dark);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a:hover { color: var(--indigo); }
+.site-nav a[aria-current="page"] {
+  color: var(--indigo);
+  border-bottom-color: var(--indigo);
+}
+
+main { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter) 4rem; }
+
+/* ---- home ---- */
+.hero { padding: 3rem 0 1rem; }
+.tagline {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 1.1rem + 2.2vw, 2.5rem);
+  line-height: 1.3;
+  color: var(--black);
+  max-width: 34ch;
+  margin: 0;
+}
+
+.prose { max-width: var(--measure); }
+.prose img { max-width: 100%; height: auto; }
+
+/* ---- people ---- */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 2rem var(--gutter);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.person img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--indigo-tint);
+}
+.person-name { margin: 0.6rem 0 0.15rem; }
+.person-role {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--grey-mid);
+}
+
+/* ---- publications ---- */
+.pub-count { color: var(--grey-mid); font-size: 0.9375rem; }
+.pub-year {
+  border-bottom: 2px solid var(--green);   /* large/graphic use of the green only */
+  padding-bottom: 0.2rem;
+}
+.pub-list { list-style: none; margin: 0; padding: 0; }
+.pub { padding: 0.9rem 0; border-bottom: 1px solid var(--grey-line); }
+.pub-title { margin: 0 0 0.2rem; font-weight: 600; }
+.pub-title a { text-decoration: none; }
+.pub-title a:hover { text-decoration: underline; }
+.pub-authors { margin: 0 0 0.15rem; font-size: 0.9375rem; }
+.pub-meta { margin: 0; font-size: 0.875rem; color: var(--grey-mid); }
+.pub-journal { font-style: italic; }
+.pub-doi { margin-left: 0.5rem; }
+.pub-tag {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--grey-dark);
+  background: var(--indigo-tint);
+  border: 1px solid var(--grey-line);
+  padding: 0.05rem 0.4rem;
+  vertical-align: 0.1em;
+}
+.pub-note { color: var(--grey-mid); }
+
+/* ---- footer ---- */
+.site-footer {
+  border-top: 2px solid var(--grey-line);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem var(--gutter) 3rem;
+  font-size: 0.875rem;
+  color: var(--grey-mid);
+}
+.site-footer p { margin: 0.2rem 0; }

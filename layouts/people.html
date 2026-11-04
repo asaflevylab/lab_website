@@ -1,0 +1,39 @@
+{{ define "main" }}
+<article class="prose">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</article>
+
+{{/* Two flat lists, no individual member pages - decided in the project brief.
+     Photos are processed out of assets/ rather than linked at full size: the
+     rescued originals run to 69 MB (one is 9.7 MB), which is fine as an archive
+     and unusable as a web page.
+
+     The person is bound to $person before the `with` block, because inside it
+     the dot is the image resource, not the roster entry. */}}
+{{ range $section := slice "current" "alumni" }}
+  {{ with index hugo.Data.people $section }}
+  <section class="people" aria-labelledby="people-{{ $section }}">
+    <h2 id="people-{{ $section }}">{{ if eq $section "current" }}Current members{{ else }}Alumni{{ end }}</h2>
+    <ul class="people-grid">
+      {{ range $person := . }}
+      <li class="person">
+        {{ with $img := resources.Get $person.photo }}
+          {{ $small := $img.Resize "420x webp q82" }}
+          <img src="{{ $small.RelPermalink }}" width="{{ $small.Width }}" height="{{ $small.Height }}"
+               alt="{{ $person.name }}" loading="lazy">
+        {{ else }}
+          {{ warnf "people.yaml: photo not found under assets/: %s (%s)" $person.photo $person.name }}
+        {{ end }}
+        <h3 class="person-name">{{ $person.name }}</h3>
+        {{/* Alumni destinations live inside the role string, e.g.
+             "M.Sc. 2019-2020; Ph.D. Candidate, Detlef Weigel Lab" - kept whole
+             so no destination is lost to a parsing guess. */}}
+        <p class="person-role">{{ $person.role }}</p>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+{{ end }}
+{{ end }}

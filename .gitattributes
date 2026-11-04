@@ -1,0 +1,6 @@
+# Keep text files LF in the repo so Windows checkouts do not churn every line.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary

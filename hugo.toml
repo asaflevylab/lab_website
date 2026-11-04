@@ -1,0 +1,79 @@
+# Levy lab website - Hugo configuration.
+#
+# Deliberately plain: no theme, no modules, no npm. Everything the site needs is
+# in this repo, so a `hugo` binary years from now still builds it.
+
+baseURL = "/"
+locale = "en-gb"
+title = "Levy Lab"
+enableRobotsTXT = true
+
+# Wix served ugly paths (/copy-of-research, /lab-members-1). The new paths are
+# clean, and each page carries an `aliases` entry so old inbound links redirect
+# instead of 404ing.
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  tagline = "Bacteria don't just survive: they fight, infiltrate, and adapt."
+  institution = "The Hebrew University of Jerusalem"
+  department = "Department of Plant Pathology and Microbiology"
+  email = "asaf.levy@mail.huji.ac.il"
+
+  # Palette read out of the Wix theme's CSS custom properties, not eyeballed.
+  # Contrast against white, computed: indigo 7.33:1, grey-mid 5.59:1,
+  # green 3.50:1 - the green is therefore NOT used for body text anywhere.
+  [params.palette]
+    indigo = "#3D4DAD"
+    indigoTint = "#F2F4FA"
+    green = "#51985C"
+    black = "#000000"
+    greyDark = "#333333"
+    greyMid = "#666666"
+    greyLine = "#E6E7E8"
+
+  # Oswald is OFL, so the headings carry across from Wix exactly. Avenir LT is
+  # licensed to Wix and cannot be self-hosted, so the body font is Figtree
+  # pending the side-by-side comparison in the design pass.
+  [params.fonts]
+    heading = "Oswald"
+    body = "Figtree"
+
+[menus]
+  [[menus.main]]
+    name = "Home"
+    pageRef = "/"
+    weight = 10
+  [[menus.main]]
+    name = "Research"
+    pageRef = "/research"
+    weight = 20
+  [[menus.main]]
+    name = "Lab Members"
+    pageRef = "/people"
+    weight = 30
+  [[menus.main]]
+    name = "Publications"
+    pageRef = "/publications"
+    weight = 40
+  [[menus.main]]
+    name = "Lab Life"
+    pageRef = "/lab-life"
+    weight = 50
+  [[menus.main]]
+    name = "In The Media"
+    pageRef = "/media"
+    weight = 60
+  [[menus.main]]
+    name = "Open Positions"
+    pageRef = "/join"
+    weight = 70
+  [[menus.main]]
+    name = "Contact"
+    pageRef = "/contact"
+    weight = 80
+
+[markup.goldmark.renderer]
+  unsafe = true  # publication titles carry <i>...</i> for species names
+
+[build]
+  writeStats = false

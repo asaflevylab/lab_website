@@ -1,0 +1,41 @@
+{{ define "main" }}
+<article class="prose">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</article>
+
+{{/* Grouped by year, newest first. Hugo's `group` works on Pages only, so the
+     years are collected from the data and the list filtered per year with
+     `where` - which also means a hand-added entry cannot land in the wrong
+     block regardless of where it was appended in the file.
+
+     Lab-member names are NOT bolded yet: the Wix bold runs read "Levy A."
+     while Crossref writes "Asaf Levy", so matching them needs an agreed rule
+     rather than a guess. */}}
+{{ $pubs := hugo.Data.publications.publications }}
+{{ $years := slice }}
+{{ range $pubs }}{{ $years = $years | append .year }}{{ end }}
+{{ $years = $years | uniq | sort | collections.Reverse }}
+
+<section class="publications">
+  <p class="pub-count">{{ len $pubs }} publications, {{ index (last 1 $years) 0 }}&ndash;{{ index $years 0 }}</p>
+  {{ range $year := $years }}
+    <h2 class="pub-year">{{ $year }}</h2>
+    <ol class="pub-list">
+      {{ range where $pubs "year" $year }}
+      <li class="pub">
+        <p class="pub-title">
+          <a href="{{ .url }}" rel="noopener">{{ .title | safeHTML }}</a>
+          {{ if .is_preprint }}<span class="pub-tag">preprint</span>{{ end }}
+        </p>
+        <p class="pub-authors">{{ delimit .authors ", " }}{{ if .co_first }} <span class="pub-note">(* co-first authors)</span>{{ end }}</p>
+        <p class="pub-meta">
+          <span class="pub-journal">{{ .journal }}</span>
+          {{ with .doi }}<span class="pub-doi">doi:{{ . }}</span>{{ end }}
+        </p>
+      </li>
+      {{ end }}
+    </ol>
+  {{ end }}
+</section>
+{{ end }}
