@@ -1,8 +1,6 @@
 {{ define "main" }}
   <section class="hero">
-    <p class="tagline">{{ site.Params.tagline }}</p>
-  </section>
-  <section class="prose">
-    {{ .Content }}
+    <h1 class="hero-title">{{ .Title }}</h1>
+    <div class="hero-lede">{{ .Content }}</div>
   </section>
 {{ end }}

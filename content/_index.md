@@ -1,9 +1,9 @@
 ---
-title: "Levy Lab"
+title: "Deciphering the Genetic Basis of Microbial Interactions with Hosts and Microbes"
 layout: home
 ---
 
-We study how bacteria interact with plants, with each other, and with the hosts
-they colonise — and what their secretion systems, effectors and toxins are for.
-
-*Page text still to be carried over from the old site.*
+Bacteria don't just survive: they fight, infiltrate, and adapt. We decode the
+molecular strategies they use to outcompete rivals, colonize plants, and infect
+insects, blending computational power with hands-on experiments to uncover
+biology hiding in plain sight.

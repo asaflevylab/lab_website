@@ -1,0 +1,23 @@
+{{/* A figure whose image is processed out of assets/.
+     Usage: {{< fig src="research/fig1__c1ee6b85.png" caption="..." >}}
+     Errors loudly if the file is missing: a silently absent figure on a research
+     page is worse than a failed build.
+
+     Every .Get is read BEFORE the `with` block, because inside it the dot is the
+     image resource and shortcode params are no longer reachable. */}}
+{{ $src := .Get "src" }}
+{{ $caption := .Get "caption" }}
+{{ $alt := .Get "alt" }}
+{{ $width := .Get "width" | default "900" }}
+{{ $page := .Page }}
+{{ with $img := resources.Get $src }}
+  {{ $out := $img.Resize (printf "%sx webp q85" $width) }}
+  <figure class="fig">
+    <img src="{{ $out.RelPermalink }}" width="{{ $out.Width }}" height="{{ $out.Height }}"
+         alt="{{ with $alt }}{{ . }}{{ else }}{{ $caption | plainify | truncate 180 }}{{ end }}"
+         loading="lazy">
+    {{ with $caption }}<figcaption>{{ $page.RenderString . }}</figcaption>{{ end }}
+  </figure>
+{{ else }}
+  {{ errorf "fig shortcode: no such image under assets/: %s (page %s)" $src $page.Path }}
+{{ end }}

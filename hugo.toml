@@ -17,7 +17,15 @@ disableKinds = ["taxonomy", "term"]
   tagline = "Bacteria don't just survive: they fight, infiltrate, and adapt."
   institution = "The Hebrew University of Jerusalem"
   department = "Department of Plant Pathology and Microbiology"
-  email = "asaf.levy@mail.huji.ac.il"
+
+  # The four affiliation lines exactly as the Wix footer printed them, in order.
+  affiliation = [
+    "Department of Plant Pathology and Microbiology",
+    "Institute of Environmental Sciences",
+    "The Robert H. Smith Faculty of Agriculture, Food & Environment",
+    "The Hebrew University of Jerusalem",
+  ]
+  email = "alevy@mail.huji.ac.il"   # as printed on the Wix contact page
 
   # Palette read out of the Wix theme's CSS custom properties, not eyeballed.
   # Contrast against white, computed: indigo 7.33:1, grey-mid 5.59:1,

@@ -1,0 +1,36 @@
+{{ define "main" }}
+<article class="prose">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</article>
+
+{{/* Hebrew items get lang="he" dir="rtl" from the data. Wix did not mark them,
+     which leaves a screen reader announcing them as English. */}}
+{{ range $group := hugo.Data.media.groups }}
+<section class="media-group">
+  <h2>{{ $group.heading }}</h2>
+  <ul class="media-list">
+    {{ range $item := $group.items }}
+    {{ $rtl := eq $item.lang "he" }}
+    <li class="media-item">
+      {{ with $logo := resources.Get $item.logo }}
+        {{ $small := $logo.Resize "200x webp q85" }}
+        <img class="media-logo" src="{{ $small.RelPermalink }}" width="{{ $small.Width }}"
+             height="{{ $small.Height }}" alt="{{ $item.outlet }}" loading="lazy">
+      {{ else }}
+        {{ warnf "media.yaml: logo not found under assets/: %s (%s)" $item.logo $item.outlet }}
+      {{ end }}
+      <div class="media-body"{{ if $rtl }} lang="he" dir="rtl"{{ end }}>
+        <h3 class="media-headline">
+          {{ with $item.url }}<a href="{{ . }}" rel="noopener">{{ $item.headline }}</a>
+          {{ else }}{{ $item.headline }}{{ end }}
+        </h3>
+        <p class="media-blurb">{{ $item.blurb }}</p>
+        <p class="media-outlet"{{ if $rtl }} lang="en" dir="ltr"{{ end }}>{{ $item.outlet }}</p>
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+{{ end }}

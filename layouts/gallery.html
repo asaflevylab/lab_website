@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article class="prose">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</article>
+
+{{/* Every image under the directory named in `gallery_dir`, so adding a photo is
+     dropping a file in - no list to maintain. The Wix originals carry no
+     captions and their alt text was only the filename again, so the images are
+     marked decorative (empty alt) rather than given a fake description: a
+     screen reader skips them instead of reading out a hash. */}}
+{{ $dir := .Params.gallery_dir }}
+{{ $images := slice }}
+{{ range (resources.Match (printf "%s/*" $dir)) }}
+  {{ if in (slice "image/jpeg" "image/png" "image/webp") .MediaType.Type }}
+    {{ $images = $images | append . }}
+  {{ end }}
+{{ end }}
+<p class="gallery-count">{{ len $images }} photos</p>
+<ul class="gallery">
+  {{ range $images }}
+    {{ $thumb := .Resize "520x webp q80" }}
+    <li><img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}"
+             height="{{ $thumb.Height }}" alt="" loading="lazy"></li>
+  {{ end }}
+</ul>
+{{ end }}

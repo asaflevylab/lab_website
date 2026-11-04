@@ -192,3 +192,89 @@ main { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter) 4re
   color: var(--grey-mid);
 }
 .site-footer p { margin: 0.2rem 0; }
+
+/* ---- home hero ---- */
+.hero-title {
+  font-size: clamp(1.6rem, 1.2rem + 2.2vw, 2.875rem);   /* Wix H1 was 46px */
+  margin-top: 1.5rem;
+  max-width: 30ch;
+}
+.hero-lede {
+  max-width: var(--measure);
+  font-size: 1.1875rem;
+  color: var(--grey-dark);
+}
+
+/* ---- figures ---- */
+.fig { margin: 2rem 0; }
+.fig img {
+  width: 100%;
+  height: auto;
+  background: var(--indigo-tint);
+}
+.fig figcaption {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--grey-mid);
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--grey-line);
+}
+
+/* Numbered findings read as a reference list, not as body prose. */
+.prose ol > li { margin-bottom: 1.1rem; }
+.prose ul > li { margin-bottom: 0.3rem; }
+
+/* ---- in the media ---- */
+.media-group { margin-top: 2.5rem; }
+.media-list { list-style: none; margin: 0; padding: 0; }
+.media-item {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: var(--gutter);
+  align-items: start;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--grey-line);
+}
+.media-logo {
+  width: 100%;
+  height: auto;
+  background: var(--white);
+}
+.media-headline { margin: 0 0 0.3rem; font-size: 1.0625rem; }
+.media-blurb { margin: 0 0 0.3rem; font-size: 0.9375rem; }
+.media-outlet {
+  margin: 0;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--grey-mid);
+}
+/* The Hebrew items are RTL; the logo column must not jump between items. */
+.media-body[dir="rtl"] { text-align: right; }
+
+@media (max-width: 30rem) {
+  .media-item { grid-template-columns: 1fr; }
+  .media-logo { max-width: 7.5rem; }
+}
+
+/* ---- lab life gallery ---- */
+.gallery-count { color: var(--grey-mid); font-size: 0.9375rem; }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--gutter);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--indigo-tint);
+}
+
+/* ---- footer ---- */
+.affiliation { list-style: none; margin: 0 0 0.5rem; padding: 0; }
+.affiliation li { margin: 0.1rem 0; }
+.footer-contact { margin: 0; }

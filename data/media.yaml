@@ -1,0 +1,85 @@
+# Press coverage, carried over from the Wix "In The Media" page.
+#
+# lang: "he" marks the Hebrew items. The template sets lang and dir from this,
+# which Wix never did - five of these ten items are Hebrew inside an English
+# page, and without the marking a screen reader reads them letter-by-letter in
+# the wrong direction.
+#
+# blurb is the outlet's own opening line as the old page quoted it, ellipsis and
+# all. It is a quotation, so it is not rewritten or completed here.
+#
+# To add an item: append to the right group with a logo under assets/media/.
+
+groups:
+  - heading: "Coverage of our T6SS research"
+    items:
+      - outlet: "Ynet"
+        logo: "media/ynet_edited__e3f63aa2.png"
+        headline: "חוקרים פרטיים: חיידקים כמשגרי טילים"
+        blurb: "המערכת של החיידקים משגרת טילים החמושים במעין ראשי נפץ שהם אנזימים שקוטלים חיידקים שכנים, למשל על ידי פירוק הדנ\"א שלהם"
+        url: "https://www.ynet.co.il/articles/0,7340,L-5472175,00.html"
+        lang: "he"
+
+  - heading: "Coverage of Levy et al. Nature Genetics 2018 paper"
+    items:
+      - outlet: "Nature Genetics"
+        logo: "media/nglogo_edited__167afbdb.png"
+        headline: "Bacterial Genomics of Plant Adaptation"
+        blurb: "What allows bacteria, both pathogens and mutualists alike, to survive in close association with a eukaryotic host? A new study performed..."
+        url: "https://www.nature.com/articles/s41588-017-0019-2"
+        lang: "en"
+      - outlet: "Joint Genome Institute"
+        logo: "media/JGIlogo__b3f0191d.jpeg"
+        headline: "Functional Genomics Database for Plant Microbiome Studies"
+        blurb: "As the global population rises, estimated to hit nearly 10 billion by 2050, so does the need to boost crop yields..."
+        url: "https://jgi.doe.gov/functional-genomics-database-for-plant-microbiome-studies/"
+        lang: "en"
+      # The Wix page gave this item a blurb but no headline of its own, so the
+      # outlet name stands in rather than inventing one.
+      - outlet: "U.S. Department of Energy"
+        logo: "media/usdept_edited__ab34b167.png"
+        headline: "Functional Genomics Database for Plant Microbiome Studies"
+        blurb: "Could marginal lands be bountiful fields for biofuel crops? To answer that question, scientists are investigating soil microbes..."
+        url: "https://www.energy.gov/science/ber/articles/functional-genomics-database-plant-microbiome-studies"
+        lang: "en"
+
+  - heading: "Coverage of Levy et al. Nature 2015 paper"
+    items:
+      - outlet: "Phys.org"
+        logo: "media/physlogo__ab0e6f14.png"
+        headline: "How Bacterial Cell Recognizes Its Own DNA"
+        blurb: "It may come as a bit of a surprise to learn that bacteria have an immune system - in their case to fight off invasive viruses called phages..."
+        url: "https://phys.org/news/2015-04-bacterial-cell-dna.html"
+        lang: "en"
+      - outlet: "The Jerusalem Post"
+        logo: "media/jposy__513616af.jpeg"
+        headline: "Scientists Discover How Bacteria Recognize Their Own DNA"
+        blurb: "Researchers from the Weizmann Institute of Science and Tel Aviv University have discovered for the first time how the immune system in bacteria manages to recognize..."
+        url: "https://www.jpost.com/Business-and-Innovation/Health-and-Science/Scientists-discover-how-bacteria-recognize-their-own-DNA-404553"
+        lang: "en"
+      # No link for this one on the Wix page either - the logo and text were not
+      # wrapped in an anchor. Left empty rather than guessed at.
+      - outlet: "Hayadan"
+        logo: "media/hayadan_logo_edited__63575e2f.png"
+        headline: "לעיתים קרובות אנו מתייחסים לחיידקים כאל גורמי מחלות"
+        blurb: "לעיתים קרובות אנו מתייחסים לחיידקים כאל גורמי מחלות, אך גם חיידקים יכולים \"לחלות\" בנגיפים הקרואים פאג'ים"
+        url: ""
+        lang: "he"
+      - outlet: "Walla"
+        logo: "media/walla__8bb03e8b.png"
+        headline: "המחקר שחושף את פעולת החיידקים ועשוי לתרום לריפוי מחלות"
+        blurb: "מדענים ישראלים הצליחו לחשוף את מנגנוני הפעולה של המערכת החיסונית של החיידקים"
+        url: "https://news.walla.co.il/item/2845849"
+        lang: "he"
+      - outlet: "Tel Aviv University"
+        logo: "media/taulogo__12b92d81.png"
+        headline: "כיצד מבחינים חיידקים ״בין אויב לאוהב״?"
+        blurb: "מדענים מאוניברסיטת תל-אביב וממכון ויצמן למדע חשפו מנגנוני פעולה של מערכת החיסון החיידקית, שעשויים בעתיד לשמש לריפוי מגוון מחלות באדם"
+        url: "https://www.tau.ac.il/research/bacteries-immunology"
+        lang: "he"
+      - outlet: "Israel Ministry of Foreign Affairs"
+        logo: "media/mfa__89715539.png"
+        headline: "How A Bacterial Cell Recognizes Its Own DNA"
+        blurb: "The bacterial cell uses its normal DNA replication and repair processes to identify phage DNA, checking and double-checking that the new DNA differs in two fundamental ways from the “self” genome..."
+        url: "https://www.gov.il/en/departments/ministry_of_foreign_affairs/govil-landing-page"
+        lang: "en"
