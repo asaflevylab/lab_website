@@ -67,18 +67,15 @@ disableKinds = ["taxonomy", "term"]
     name = "Lab Life"
     pageRef = "/lab-life"
     weight = 50
+  # 2026-11-04: nav cut 8 -> 6. Open Positions + Contact merged into one page,
+  # In The Media dropped. Both old paths survive as aliases on their new homes,
+  # because /open-positions, /contact and /in-the-media are real Wix URLs with
+  # inbound links. data/media.yaml and layouts/media.html are kept, unpublished,
+  # so restoring that page is re-adding one content file.
   [[menus.main]]
-    name = "In The Media"
-    pageRef = "/media"
-    weight = 60
-  [[menus.main]]
-    name = "Open Positions"
+    name = "Join Us"
     pageRef = "/join"
-    weight = 70
-  [[menus.main]]
-    name = "Contact"
-    pageRef = "/contact"
-    weight = 80
+    weight = 60
 
 [markup.goldmark.renderer]
   unsafe = true  # publication titles carry <i>...</i> for species names

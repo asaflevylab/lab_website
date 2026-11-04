@@ -1,8 +1,20 @@
-{{/* Skip link first in the tab order: the nav is eight items, and without this a
+{{/* Skip link first in the tab order: the nav is six items, and without this a
      keyboard user traverses all of them on every page before reaching content. */}}
 <a class="skip-link" href="#content">Skip to content</a>
 <header class="site-header">
-  <a class="site-title" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+  {{/* The lab mark, restored from Wix, where it sat in the header of all 8 pages at
+       183x87. It carries the lab name, so it replaces the text wordmark rather than
+       sitting beside it. Falls back to the text title if the file ever goes missing,
+       so a broken asset degrades instead of leaving an unlabelled link. */}}
+  <a class="site-title" href="{{ "/" | relURL }}">
+    {{- with resources.Get "brand/levy_logo.png" -}}
+      {{ $logo := .Resize "366x webp q90" }}
+      <img class="site-logo" src="{{ $logo.RelPermalink }}"
+           width="{{ $logo.Width }}" height="{{ $logo.Height }}" alt="{{ site.Title }}">
+    {{- else -}}
+      {{ site.Title }}
+    {{- end -}}
+  </a>
   <nav class="site-nav" aria-label="Main">
     <ul>
       {{- range site.Menus.main }}

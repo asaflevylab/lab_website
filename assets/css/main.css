@@ -90,7 +90,13 @@ a:hover { text-decoration: none; }
   color: var(--black);
   text-decoration: none;
   margin-right: auto;
+  display: block;
 }
+/* Wix rendered the mark at 183x87 (2.10:1); the source is 2475x1177, same ratio.
+   No contrast rule applies - WCAG exempts logotypes from the text contrast floor,
+   which is why the green mark is fine here while the green is still barred from
+   body text. */
+.site-logo { display: block; width: min(183px, 52vw); height: auto; }
 .site-nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -259,18 +265,25 @@ main { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter) 4re
 
 /* ---- lab life gallery ---- */
 .gallery-count { color: var(--grey-mid); font-size: 0.9375rem; }
+/* Masonry, matching what Wix actually served: its Pro Gallery ran
+   `galleryLayout:1` (masonry) with `cropOnlyFill:false`, i.e. it never force-cropped.
+   The previous 4/3 + object-fit:cover grid cut 44% off the height of each of the 11
+   portrait photos in this set of 25. CSS columns, so there is no JS to rot. */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: var(--gutter);
+  column-width: 16rem;
+  column-gap: var(--gutter);
   list-style: none;
   margin: 0;
   padding: 0;
 }
+.gallery li {
+  break-inside: avoid;
+  margin: 0 0 var(--gutter);
+}
 .gallery img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
+  display: block;
   background: var(--indigo-tint);
 }
 
