@@ -1,0 +1,689 @@
+# Publications recovered from the Wix site by wix_publications_extract.py
+# and resolved against Crossref by crossref_resolve.py.
+#
+# To add a paper: append an entry with just its doi, then re-run
+# crossref_resolve.py to fill in the rest.
+#   raw          = the citation exactly as the old Wix site printed it (audit trail)
+#   lab_members  = names the Wix page showed in bold; empty on the older entries
+#   co_first     = the citation marked co-first authors with an asterisk
+#   is_preprint  = Crossref type posted-content; journal holds the server name
+#   match_score  = share of the Crossref title's words found in the Wix line
+#
+# A title may contain <i>...</i> - Crossref italicises species names, which is
+# correct typography for us. The template must therefore render title as HTML
+# rather than escaping it.
+
+publications:
+  - year: "2026"
+    title: "A comprehensive catalogue of receptor-binding domains in extracellular contractile injection systems"
+    journal: "Nature Communications"
+    doi: "10.1038/s41467-026-68710-y"
+    url: "https://doi.org/10.1038/s41467-026-68710-y"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Nimrod Nachmias"
+      - "Zhiren Wang"
+      - "Xiao Feng"
+      - "Feng Jiang"
+      - "Asaf Levy"
+    lab_members:
+      - "Nachmias, N."
+      - "Levy A."
+    wix_entry: 2
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    raw: "Nachmias, N., Wang, Z., Feng, X, Levy A. comprehensive catalogue of receptor-binding domains in extracellular contractile injection systems. Nat Commun 17, 1939 (2026). https://doi.org/10.1038/s41467-026-68710-y"
+
+  - year: "2026"
+    title: "Discovery of novel antimicrobials within microbiomes"
+    journal: "Current Opinion in Microbiology"
+    doi: "10.1016/j.mib.2026.102781"
+    url: "https://doi.org/10.1016/j.mib.2026.102781"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Erez Weisberg"
+      - "Aya Friedman"
+      - "Cesar de la Fuente-Nunez"
+      - "Asaf Levy"
+    lab_members:
+      - "Erez Weisberg"
+      - "Aya Friedman"
+      - "Asaf Levy"
+    wix_entry: 1
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    raw: "Erez Weisberg, Aya Friedman, Cesar de la Fuente-Nunez, Asaf Levy, Discovery of novel antimicrobials within microbiomes, Current Opinion in Microbiology Volume 92 (2026), https://doi.org/10.1016/j.mib.2026.102781."
+
+  - year: "2025"
+    title: "Deciphering bacterial protein functions with innovative computational methods"
+    journal: "Trends in Microbiology"
+    doi: "10.1016/j.tim.2024.11.013"
+    url: "https://www.cell.com/trends/microbiology/fulltext/S0966-842X(24)00316-0"
+    co_first: true
+    is_preprint: false
+    authors:
+      - "Shani Cheskis"
+      - "Avital Akerman"
+      - "Asaf Levy"
+    lab_members:
+      - "Shani Cheskis*, Avital Akerman*, Asaf Levy"
+    wix_entry: 6
+    resolved_by: "citation-query"
+    match_score: 1.0
+    raw: "Shani Cheskis*, Avital Akerman*, Asaf Levy Deciphering bacterial protein functions with innovative computational methods Trends in Microbiology Volume 33, Issue 4p434-446April 2025 https://www.cell.com/trends/microbiology/fulltext/S0966-842X(24)00316-0"
+
+  - year: "2025"
+    title: "Crop root bacterial and viral genomes reveal unexplored species and microbiome patterns"
+    journal: "Cell"
+    doi: "10.1016/j.cell.2025.02.013"
+    url: "https://www.cell.com/cell/fulltext/S0092-8674(25)00198-9"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Rui Dai"
+      - "Jingying Zhang"
+      - "Fang Liu"
+      - "Haoran Xu"
+      - "Jing-Mei Qian"
+      - "Shani Cheskis"
+      - "Weidong Liu"
+      - "Binglei Wang"
+      - "Honghui Zhu"
+      - "Lotte J.U. Pronk"
+      - "Marnix H. Medema"
+      - "Ronnie de Jonge"
+      - "Corné M.J. Pieterse"
+      - "Asaf Levy"
+      - "Klaus Schlaeppi"
+      - "Yang Bai"
+    lab_members:
+      - "Shani Cheskis"
+      - "Asaf Levy"
+    wix_entry: 4
+    resolved_by: "citation-query"
+    match_score: 1.0
+    raw: "Rui Dai, Jingying Zhang, Fang Liu, Haoran Xu, Jing-Mei Qian, Shani Cheskis, Weidong Liu, Binglei Wang, Honghui Zhu, Lotte JU Pronk, Marnix H Medema, Ronnie de Jonge, Corné MJ Pieterse, Asaf Levy, Klaus Schlaeppi, Yang Bai Crop root bacterial and viral genomes reveal unexplored species and microbiome patterns Cell, Volume 188, Issue 9p2521-2539.e22May 01, 2025 https://www.cell.com/cell/fulltext/S0092-8674(25)00198-9"
+
+  - year: "2025"
+    title: "Plasmids, prophages, and defense systems are depleted from plant microbiota genomes"
+    journal: "Genome Biology"
+    doi: "10.1186/s13059-025-03641-3"
+    url: "https://genomebiology.biomedcentral.com/articles/10.1186/s13059-025-03641-3"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Avi Bograd"
+      - "Yaara Oppenheimer-Shaanan"
+      - "Asaf Levy"
+    lab_members:
+      - "Avi Bograd, Yaara Oppenheimer-Shaanan, Asaf Levy"
+    wix_entry: 3
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    raw: "Avi Bograd, Yaara Oppenheimer-Shaanan, Asaf Levy Plasmids, Prophages and Defense Systems are Depleted from Plant Microbiota Genomes Genome Biology volume 26, Article number: 163 (2025) https://genomebiology.biomedcentral.com/articles/10.1186/s13059-025-03641-3"
+
+  - year: "2024"
+    title: "Toxinome—the bacterial protein toxin database"
+    journal: "mBio"
+    doi: "10.1128/mbio.01911-23"
+    url: "https://journals.asm.org/doi/10.1128/mbio.01911-23"
+    co_first: true
+    is_preprint: false
+    authors:
+      - "Aleks Danov"
+      - "Ofir Segev"
+      - "Avi Bograd"
+      - "Yedidya Ben Eliyahu"
+      - "Noam Dotan"
+      - "Tommy Kaplan"
+      - "Asaf Levy"
+    lab_members:
+      - "Danov A*, Segev O*, Bograd A*, Eliyahu Y, Dotan N"
+      - "Levy, A."
+    wix_entry: 10
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    raw: "Danov A*, Segev O*, Bograd A*, Eliyahu Y, Dotan N, Kaplan T, Levy, A. Toxinome—the bacterial protein toxin database. mBio. Vol. 15, No. 1, 2024.1. https://journals.asm.org/doi/10.1128/mbio.01911-23"
+
+  - year: "2024"
+    title: "Identification of type VI secretion system effector-immunity pairs using structural bioinformatics"
+    journal: "Molecular Systems Biology"
+    doi: "10.1038/s44320-024-00035-8"
+    url: "https://www.embopress.org/doi/full/10.1038/s44320-024-00035-8"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Alexander M Geller"
+      - "Maor Shalom"
+      - "David Zlotkin"
+      - "Noam Blum"
+      - "Asaf Levy"
+    lab_members:
+      - "Geller AM, Shalom M, Zlotkin D, Blum N, and Levy A"
+    wix_entry: 9
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    raw: "Geller AM, Shalom M, Zlotkin D, Blum N, and Levy A Identification of type VI secretion system effector-immunity pairs using structural bioinformatics. Molecular Systems Biology 2024 https://www.embopress.org/doi/full/10.1038/s44320-024-00035-8"
+
+  - year: "2024"
+    title: "Widespread horizontal gene transfer between plants and bacteria"
+    journal: "ISME Communications"
+    doi: "10.1093/ismeco/ycae073"
+    url: "https://academic.oup.com/ismecommun/article/4/1/ycae073/7671050?login=false"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Shelly Haimlich"
+      - "Yulia Fridman"
+      - "Hitaishi Khandal"
+      - "Sigal Savaldi-Goldstein"
+      - "Asaf Levy"
+    lab_members:
+      - "Haimlich S,"
+      - "and Levy A"
+    wix_entry: 8
+    resolved_by: "citation-query"
+    match_score: 1.0
+    raw: "Haimlich S, Fridman Y, Khandal H, Savaldi-Goldstein S, and Levy A Widespread horizontal gene transfer between plants and bacteria ISME Communications 2024 https://academic.oup.com/ismecommun/article/4/1/ycae073/7671050?login=false"
+
+  - year: "2024"
+    title: "Identification of novel toxins associated with the extracellular contractile injection system using machine learning"
+    journal: "Molecular Systems Biology"
+    doi: "10.1038/s44320-024-00053-6"
+    url: "https://www.embopress.org/doi/full/10.1038/s44320-024-00053-6"
+    co_first: true
+    is_preprint: false
+    authors:
+      - "Aleks Danov"
+      - "Inbal Pollin"
+      - "Eric Moon"
+      - "Mengfei Ho"
+      - "Brenda A Wilson"
+      - "Philippos A Papathanos"
+      - "Tommy Kaplan"
+      - "Asaf Levy"
+    lab_members:
+      - "Danov A*, Pollin I*,"
+      - ", and Levy A"
+    wix_entry: 7
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    raw: "Danov A*, Pollin I*, Moon E, Ho M, Wilson BA, Papathanos PA, Kaplan T, and Levy A Identification of novel toxins associated with the extracellular contractile injection system using machine learning. Molecular Systems Biology 2024 (Cover page!) https://www.embopress.org/doi/full/10.1038/s44320-024-00053-6"
+
+  - year: "2024"
+    title: "Systematic discovery of antibacterial and antifungal bacterial toxins"
+    journal: "Nature Microbiology"
+    doi: "10.1038/s41564-024-01820-9"
+    url: "https://www.nature.com/articles/s41564-024-01820-9"
+    co_first: true
+    is_preprint: false
+    authors:
+      - "Nimrod Nachmias"
+      - "Noam Dotan"
+      - "Marina Campos Rocha"
+      - "Rina Fraenkel"
+      - "Katharina Detert"
+      - "Monika Kluzek"
+      - "Maor Shalom"
+      - "Shani Cheskis"
+      - "Sonu Peedikayil-Kurien"
+      - "Gilad Meitav"
+      - "Arbel Rivitz"
+      - "Naama Shamash-Halevy"
+      - "Inbar Cahana"
+      - "Noam Deouell"
+      - "Jacob Klein"
+      - "Meital Oren-Suissa"
+      - "Herbert Schmidt"
+      - "Neta Shlezinger"
+      - "Netanel Tzarum"
+      - "Yaara Oppenheimer-Shaanan"
+      - "Asaf Levy"
+    lab_members:
+      - "Nimrod Nachmias*, Noam Dotan*,"
+      - "Maor Shalom,"
+      - "Shani Cheskis"
+      - "Gilad Meitav, Arbel Rivitz, Naama Shamash-Halevy"
+      - "Yaara Oppenheimer-Shaanan, Asaf Levy"
+    wix_entry: 5
+    resolved_by: "url-nature"
+    match_score: 1.0
+    raw: "Nimrod Nachmias*, Noam Dotan*, Marina Campos Rocha*, Rina Fraenkel, Katharina Detert, Monika Kluzek, Maor Shalom, Shani Cheskis, Sonu Peedikayil-Kurien, Gilad Meitav, Arbel Rivitz, Naama Shamash-Halevy, Inbar Cahana, Noam Deouell, Jacob Klein, Meital Oren-Suissa, Herbert Schmidt, Neta Schlezinger, Netanel Tzarum, Yaara Oppenheimer-Shaanan, Asaf Levy Systematic discovery of antibacterial and antifungal bacterial toxins Nature Microbiology volume 9, pages3041–3058 (2024) https://www.nature.com/articles/s41564-024-01820-9"
+
+  - year: "2023"
+    title: "“What I cannot create, I do not understand\": elucidating microbe–microbe interactions to facilitate plant microbiome engineering"
+    journal: "Current Opinion in Microbiology"
+    doi: "10.1016/j.mib.2023.102283"
+    url: "https://www.sciencedirect.com/science/article/pii/S1369527423000206"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Alexander M Geller"
+      - "Asaf Levy"
+    lab_members:
+      - "Geller AM and Levy A."
+    wix_entry: 11
+    resolved_by: "citation-query"
+    match_score: 1.0
+    raw: "Geller AM and Levy A. “What I cannot create, I do not understand\": elucidating microbe–microbe interactions to facilitate plant microbiome engineering. Current Opinion in Microbiology 2023. Volume 72, 2023.4.102283. https://www.sciencedirect.com/science/article/pii/S1369527423000206"
+
+  - year: "2022"
+    title: "Deeplasmid: deep learning accurately separates plasmids from bacterial chromosomes"
+    journal: "Nucleic Acids Research"
+    doi: "10.1093/nar/gkab1115"
+    url: "https://academic.oup.com/nar/article/50/3/e17/6454267"
+    co_first: true
+    is_preprint: false
+    authors:
+      - "William B Andreopoulos"
+      - "Alexander M Geller"
+      - "Miriam Lucke"
+      - "Jan Balewski"
+      - "Alicia Clum"
+      - "Natalia N Ivanova"
+      - "Asaf Levy"
+    lab_members:
+      - "Geller AM*, Lucke M*,"
+      - "Levy A."
+    wix_entry: 15
+    resolved_by: "citation-query"
+    match_score: 1.0
+    note: "year differs (wix 2022, crossref 2021) - kept 2022, crossref is earlier"
+    raw: "Andreopoulos WB*, Geller AM*, Lucke M*, Balewski J, Clum A, Ivanova N, Levy A. Deeplasmid: Deep learning accurately separates plasmids from bacterial chromosomes. Nucleic Acids Research, Volume 50, Issue 3, 22 February 2022, Page e17. https://academic.oup.com/nar/article/50/3/e17/6454267"
+
+  - year: "2021"
+    title: "The extracellular contractile injection system is enriched in environmental microbes and associates with numerous toxins"
+    journal: "Nature Communications"
+    doi: "10.1038/s41467-021-23777-7"
+    url: "https://www.nature.com/articles/s41467-021-23777-7"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Alexander Martin Geller"
+      - "Inbal Pollin"
+      - "David Zlotkin"
+      - "Aleks Danov"
+      - "Nimrod Nachmias"
+      - "William B. Andreopoulos"
+      - "Keren Shemesh"
+      - "Asaf Levy"
+    lab_members:
+      - "Geller AM, Pollin I, Zlotkin D, Danov A, Nachmias N,"
+      - "Shemesh K & Levy A."
+    wix_entry: 14
+    resolved_by: "url-nature"
+    match_score: 1.0
+    raw: "Geller AM, Pollin I, Zlotkin D, Danov A, Nachmias N, Andreopoulos WB, Shemesh K & Levy A. The extracellular contractile injection system is enriched in environmental microbes and associates with numerous toxins. Nature Communications 12, 3743 (2021). https://www.nature.com/articles/s41467-021-23777-7"
+
+  - year: "2021"
+    title: "Large-scale discovery of candidate type VI secretion effectors with antibacterial activity"
+    journal: "bioRxiv"
+    doi: "10.1101/2021.10.07.463556"
+    url: "https://www.biorxiv.org/content/10.1101/2021.10.07.463556v1"
+    co_first: false
+    is_preprint: true
+    authors:
+      - "Alexander Martin Geller"
+      - "David Zlotkin"
+      - "Asaf Levy"
+    lab_members:
+      - "Geller AM, Zlotkin D, Levy A."
+    wix_entry: 13
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    raw: "Geller AM, Zlotkin D, Levy A. Large-scale discovery of candidate type VI secretion effectors with antibacterial activity. bioRxiv 2021 2021.10.07.463556. https://www.biorxiv.org/content/10.1101/2021.10.07.463556v1"
+
+  - year: "2021"
+    title: "Systematic Discovery of Antibacterial and Antifungal Bacterial Toxins"
+    journal: "bioRxiv"
+    doi: "10.1101/2021.10.19.465003"
+    url: "https://www.biorxiv.org/content/10.1101/2021.10.19.465003v2"
+    co_first: true
+    is_preprint: true
+    authors:
+      - "Nimrod Nachmias"
+      - "Noam Dotan"
+      - "Rina Fraenkel"
+      - "Marina Campos Rocha"
+      - "Monika Kluzek"
+      - "Maor Shalom"
+      - "Arbel Rivitz"
+      - "Naama Shamash-Halevy"
+      - "Inbar Cahana"
+      - "Noam Deouell"
+      - "Jacob Klein"
+      - "Neta Schlezinger"
+      - "Netanel Tzarum"
+      - "Yaara Oppenheimer-Shaanan"
+      - "Asaf Levy"
+    lab_members:
+      - "Nachmias N*, Dotan N*,"
+      - "Shalom M, Rivitz A, Shamash-Halevy N,"
+      - "Oppenheimer-Shaanan Y, Levy A."
+    wix_entry: 12
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    raw: "Nachmias N*, Dotan N*, Fraenkel R, Campos Rocha M, Kluzek M, Shalom M, Rivitz A, Shamash-Halevy N, Cahana I, Deouell N, Klein K, Schlezinger N, Tzarum N, Oppenheimer-Shaanan Y, Levy A. Systematic Discovery of Antibacterial and Antifungal Bacterial Toxins. bioRxiv 2021 2021.10.19.465003v2 https://www.biorxiv.org/content/10.1101/2021.10.19.465003v2"
+
+  - year: "2020"
+    title: "AzeR, a transcriptional regulator that responds to azelaic acid in Pseudomonas nitroreducens"
+    journal: "Microbiology"
+    doi: "10.1099/mic.0.000865"
+    url: "https://www.microbiologyresearch.org/content/journal/micro/10.1099/mic.0.000865"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Cristina Bez"
+      - "Sree Gowrinadh Javvadi"
+      - "Iris Bertani"
+      - "Giulia Devescovi"
+      - "Corrado Guarnaccia"
+      - "David J. Studholme"
+      - "Alexander M. Geller"
+      - "Asaf Levy"
+      - "Vittorio Venturi"
+    lab_members:
+      - "Geller AM, Levy A,"
+    wix_entry: 19
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    note: "year differs (wix 2019, crossref 2020) - kept 2020, wix is earlier"
+    raw: "Bez C, Javvadi SG, Bertani I, Devescovi G, Guarnaccia C, Studholme DJ, Geller AM, Levy A, Venturi V. AzeR, a transcriptional regulator that responds to azelaic acid in Pseudomonas nitroreducens. Microbiology. 2019 Oct 17. doi: 10.1099/mic.0.000865. [Epub ahead of print] PubMed PMID: 31621557. https://www.microbiologyresearch.org/content/journal/micro/10.1099/mic.0.000865"
+
+  - year: "2020"
+    title: "In Planta Colonization and Role of T6SS in Two Rice <i>Kosakonia</i> Endophytes"
+    journal: "Molecular Plant-Microbe Interactions®"
+    doi: "10.1094/mpmi-09-19-0256-r"
+    url: "https://apsjournals.apsnet.org/doi/10.1094/MPMI-09-19-0256-R"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Susan Mosquito"
+      - "Iris Bertani"
+      - "Danilo Licastro"
+      - "Stéphane Compant"
+      - "Michael P. Myers"
+      - "Estefanía Hinarejos"
+      - "Asaf Levy"
+      - "Vittorio Venturi"
+    lab_members:
+      - "Levy A,"
+    wix_entry: 18
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    note: "year differs (wix 2019, crossref 2020) - kept 2020, wix is earlier"
+    raw: "Mosquito S, Bertani I, Licastro D, Compant S, Myers MP, Hinarejos E, Levy A, Venturi V. In Planta Colonization and Role of T6SS in Two Rice Kosakonia Endophytes. Mol Plant Microbe Interactions. 2020 Feb;33(2):349-363. doi: 10.1094/MPMI-09-19-0256-R. Epub 2019 Dec 18. https://apsjournals.apsnet.org/doi/10.1094/MPMI-09-19-0256-R"
+
+  - year: "2020"
+    title: "LuxR Solos in the Plant Endophyte <i>Kosakonia</i> sp. Strain KO348"
+    journal: "Applied and Environmental Microbiology"
+    doi: "10.1128/aem.00622-20"
+    url: "https://journals.asm.org/doi/full/10.1128/aem.00622-20"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Susan Mosquito"
+      - "Xianfa Meng"
+      - "Giulia Devescovi"
+      - "Iris Bertani"
+      - "Alexander M. Geller"
+      - "Asaf Levy"
+      - "Michael P. Myers"
+      - "Cristina Bez"
+      - "Sonia Covaceuszach"
+      - "Vittorio Venturi"
+    lab_members:
+      - "Geller AM, Levy A,"
+    wix_entry: 17
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    raw: "Mosquito S, Meng X, Devescovi G, Bertani I, Geller AM, Levy A, Myers MP, Bez C, Covaceuszach S, Venturi V. LuxR Solos in the Plant Endophyte Kosakonia sp. Strain KO348. Applied and Environmental Microbiology. Jun 2020, 86 (13) e00622-20 https://journals.asm.org/doi/full/10.1128/aem.00622-20"
+
+  - year: "2020"
+    title: "The Role of Secretion Systems, Effectors, and Secondary Metabolites of Beneficial Rhizobacteria in Interactions With Plants and Microbes"
+    journal: "Frontiers in Plant Science"
+    doi: "10.3389/fpls.2020.589416"
+    url: "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.589416/full"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Miriam Lucke"
+      - "Mario Gabriel Correa"
+      - "Asaf Levy"
+    lab_members:
+      - "Lucke M, Correa MG, Levy A."
+    wix_entry: 16
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    raw: "Lucke M, Correa MG, Levy A. The Role of Secretion Systems, Effectors, and Secondary Metabolites of Beneficial Rhizobacteria in Interactions With Plants and Microbes. Frontiers in Plant Science. November 2020. 11, 1718. https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.589416/full"
+
+  - year: "2018"
+    title: "Genomic features of bacterial adaptation to plants"
+    journal: "Nature Genetics"
+    doi: "10.1038/s41588-017-0012-9"
+    url: "https://www.nature.com/articles/s41588-017-0012-9"
+    co_first: true
+    is_preprint: false
+    authors:
+      - "Asaf Levy"
+      - "Isai Salas Gonzalez"
+      - "Maximilian Mittelviefhaus"
+      - "Scott Clingenpeel"
+      - "Sur Herrera Paredes"
+      - "Jiamin Miao"
+      - "Kunru Wang"
+      - "Giulia Devescovi"
+      - "Kyra Stillman"
+      - "Freddy Monteiro"
+      - "Bryan Rangel Alvarez"
+      - "Derek S. Lundberg"
+      - "Tse-Yuan Lu"
+      - "Sarah Lebeis"
+      - "Zhao Jin"
+      - "Meredith McDonald"
+      - "Andrew P. Klein"
+      - "Meghan E. Feltcher"
+      - "Tijana Glavina Rio"
+      - "Sarah R. Grant"
+      - "Sharon L. Doty"
+      - "Ruth E. Ley"
+      - "Bingyu Zhao"
+      - "Vittorio Venturi"
+      - "Dale A. Pelletier"
+      - "Julia A. Vorholt"
+      - "Susannah G. Tringe"
+      - "Tanja Woyke"
+      - "Jeffery L. Dangl"
+    lab_members:
+      - "Levy A*,"
+    wix_entry: 21
+    resolved_by: "url-nature"
+    match_score: 1.0
+    raw: "Levy A*, Gonzalez IS*, Mittelviefhaus M, Clingenpeel S, Paredes SH, Devescovi G, Stillman K, Monteiro F, Alvarez BR, Lundberg DS, Tse-Yuan L, Lebeis S, Jin Z, McDonald M, Klein AP, Feltcher ME, del Rio TG, Grant SR, Doty SL, Venturi V, Ley RE, Zhao B, Pelletier DA, Vorholt J, Tringe SG, Woyke T, Dangl JL. Genomic Features of Bacterial Adaptation to Plants. Nature Genetics. 2018. 50, 138-150. https://www.nature.com/articles/s41588-017-0012-9"
+
+  - year: "2018"
+    title: "Elucidating Bacterial Gene Functions in the Plant Microbiome"
+    journal: "Cell Host &amp; Microbe"
+    doi: "10.1016/j.chom.2018.09.005"
+    url: "https://www.sciencedirect.com/science/article/pii/S193131281830489X"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Asaf Levy"
+      - "Jonathan M. Conway"
+      - "Jeffery L. Dangl"
+      - "Tanja Woyke"
+    lab_members:
+      - "Levy A,"
+    wix_entry: 20
+    resolved_by: "doi-stated"
+    match_score: 1.0
+    raw: "Levy A, Conway JM, Dangl JL, Woyke T. Elucidating Bacterial Gene Functions in the Plant Microbiome. (Levy A - corresponding author) Cell Host Microbe. 2018 Oct 10;24(4):475-485. doi: 10.1016/j.chom.2018.09.005. Review. PubMed PMID: 30308154.https://www.sciencedirect.com/science/article/pii/S193131281830489X"
+
+  - year: "2016"
+    title: "Toxin‐Antitoxin systems eliminate defective cells and preserve symmetry in <scp> <i>B</i> </scp> <i>acillus subtilis</i> biofilms"
+    journal: "Environmental Microbiology"
+    doi: "10.1111/1462-2920.13471"
+    url: "https://enviromicro-journals.onlinelibrary.wiley.com/doi/full/10.1111/1462-2920.13471"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Zohar Bloom‐Ackermann"
+      - "Nitai Steinberg"
+      - "Gili Rosenberg"
+      - "Yaara Oppenheimer‐Shaanan"
+      - "Dan Pollack"
+      - "Shir Ely"
+      - "Nimrod Storzi"
+      - "Asaf Levy"
+      - "Ilana Kolodkin‐Gal"
+    lab_members:
+      - "Levy A,"
+    wix_entry: 22
+    resolved_by: "doi-stated"
+    match_score: 0.818
+    raw: "Bloom-Ackermann Z, Steinberg N, Rosenberg G, Oppenheimer-Shaanan Y, Pollack D, Ely S, Storzi N, Levy A, Kolodkin-Gal I. Toxin-Antitoxin systems eliminate defective cells and preserve symmetry in Bacillus subtilis biofilms. Environ Microbiol. 2016 Dec;18(12):5032-5047 https://enviromicro-journals.onlinelibrary.wiley.com/doi/full/10.1111/1462-2920.13471"
+
+  - year: "2015"
+    title: "CRISPR adaptation biases explain preference for acquisition of foreign DNA"
+    journal: "Nature"
+    doi: "10.1038/nature14302"
+    url: "https://www.nature.com/articles/nature14302"
+    co_first: true
+    is_preprint: false
+    authors:
+      - "Asaf Levy"
+      - "Moran G. Goren"
+      - "Ido Yosef"
+      - "Oren Auster"
+      - "Miriam Manor"
+      - "Gil Amitai"
+      - "Rotem Edgar"
+      - "Udi Qimron"
+      - "Rotem Sorek"
+    lab_members:
+      - "Levy A*,"
+    wix_entry: 23
+    resolved_by: "citation-query"
+    match_score: 1.0
+    raw: "Levy A*, Goren M*, Yosef I, Auster O, Manor M, Amitai G, Edgar R, Qimron U, Sorek R, “CRISPR adaptation biases explain preference for acquisition of foreign DNA”. Nature. 2015 April 23, 520(7548):505-10. https://www.nature.com/articles/nature14302"
+
+  - year: "2013"
+    title: "Alternative Splicing Regulates Biogenesis of miRNAs Located across Exon-Intron Junctions"
+    journal: "Molecular Cell"
+    doi: "10.1016/j.molcel.2013.05.007"
+    url: "https://www.sciencedirect.com/science/article/pii/S1097276513003705"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Ze’ev Melamed"
+      - "Asaf Levy"
+      - "Reut Ashwal-Fluss"
+      - "Galit Lev-Maor"
+      - "Keren Mekahel"
+      - "Nir Atias"
+      - "Shlomit Gilad"
+      - "Roded Sharan"
+      - "Carmit Levy"
+      - "Sebastian Kadener"
+      - "Gil Ast"
+    lab_members:
+      - "Levy A"
+    wix_entry: 24
+    resolved_by: "citation-query"
+    match_score: 1.0
+    raw: "Melamed Z, Levy A, Ashwal R., Lev-Maor G., Mekahel K., Atias N., Gilad S., Sharan R., Levy C., Kadener S., and Ast G., “Alternative splicing regulates biogenesis of miRNAs located across exon-intron junctions”, Molecular Cell. 2013 Jun 27;50(6):869- 81https://www.sciencedirect.com/science/article/pii/S1097276513003705"
+
+  - year: "2012"
+    title: "A vast collection of microbial genes that are toxic to bacteria"
+    journal: "Genome Research"
+    doi: "10.1101/gr.133850.111"
+    url: "https://genome.cshlp.org/content/early/2012/02/01/gr.133850.111"
+    co_first: true
+    is_preprint: false
+    authors:
+      - "Aya Kimelman"
+      - "Asaf Levy"
+      - "Hila Sberro"
+      - "Shahar Kidron"
+      - "Azita Leavitt"
+      - "Gil Amitai"
+      - "Deborah R. Yoder-Himes"
+      - "Omri Wurtzel"
+      - "Yiwen Zhu"
+      - "Edward M. Rubin"
+      - "Rotem Sorek"
+    lab_members:
+      - "Levy A*"
+    wix_entry: 25
+    resolved_by: "citation-query"
+    match_score: 1.0
+    raw: "Kimelman A*, Levy A*, Sberro H*, Kidron S, Leavitt A, Amitai G, Yoder-Himes DR, Wurtzel O, Zhu Y, Rubin EM, Sorek R., “A vast collection of microbial genes that are toxic to bacteria”, Genome Research. 2012 Apr;22(4):802-9https://genome.cshlp.org/content/early/2012/02/01/gr.133850.111"
+
+  - year: "2010"
+    title: "Single nucleotide polymorphisms in miRNA binding sites and miRNA genes as breast/ovarian cancer risk modifiers in Jewish high‐risk women"
+    journal: "International Journal of Cancer"
+    doi: "10.1002/ijc.25065"
+    url: "https://onlinelibrary.wiley.com/doi/10.1002/ijc.25065"
+    co_first: true
+    is_preprint: false
+    authors:
+      - "Tair Kontorovich"
+      - "Asaf Levy"
+      - "Michael Korostishevsky"
+      - "Uri Nir"
+      - "Eitan Friedman"
+    lab_members:
+      - "Levy A*"
+    wix_entry: 28
+    resolved_by: "doi-stated"
+    match_score: 0.733
+    raw: "Kontorovich T*, Levy A*, Korostishevsky M, Nir U, Friedman E. “SNPs in miRNA binding sites and miRNA genes as breast/ovarian cancer risk modifiers in Jewish high risk women”, Int J Cancer. 2010 Aug 1;127(3):589-97 https://onlinelibrary.wiley.com/doi/10.1002/ijc.25065"
+
+  - year: "2010"
+    title: "Discovery of microRNAs and other small RNAs in solid tumors"
+    journal: "Nucleic Acids Research"
+    doi: "10.1093/nar/gkq376"
+    url: "https://doi.org/10.1093/nar/gkq376"
+    co_first: true
+    is_preprint: false
+    authors:
+      - "Eti Meiri"
+      - "Asaf Levy"
+      - "Hila Benjamin"
+      - "Miriam Ben-David"
+      - "Lahav Cohen"
+      - "Avital Dov"
+      - "Nir Dromi"
+      - "Eran Elyakim"
+      - "Noga Yerushalmi"
+      - "Orit Zion"
+      - "Gila Lithwick-Yanai"
+      - "Einat Sitbon"
+    lab_members:
+      - "Levy A*"
+    wix_entry: 27
+    resolved_by: "citation-query"
+    match_score: 1.0
+    raw: "Meiri E*, Levy A*, Benjamin H, Ben-David M, Cohen L, Dov A, Dromi N, Elyakim E, Yerushalmi N, Zion O, Lithwick-Yanai G, Sitbon E., “Discovery of microRNAs and other small RNAs in solid tumors”, Nucleic Acids Research. 2010 Oct;38(18):6234-46"
+
+  - year: "2010"
+    title: "Large-scale discovery of insertion hotspots and preferential integration sites of human transposed elements"
+    journal: "Nucleic Acids Research"
+    doi: "10.1093/nar/gkp1134"
+    url: "https://doi.org/10.1093/nar/gkp1134"
+    co_first: false
+    is_preprint: false
+    authors:
+      - "Asaf Levy"
+      - "Schraga Schwartz"
+      - "Gil Ast"
+    lab_members:
+      - "Levy A"
+    wix_entry: 26
+    resolved_by: "citation-query"
+    match_score: 1.0
+    note: "year differs (wix 2010, crossref 2009) - kept 2010, crossref is earlier"
+    raw: "Levy A, Schwartz S and Ast G., “Large-scale discovery of insertion hotspots and preferential integration sites of human transposed elements”, Nucleic Acids Research. 2010 Mar; 38(5):1515-30"

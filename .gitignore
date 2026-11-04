@@ -1,0 +1,12 @@
+# Hugo build output and caches
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# Crossref response cache (regenerable; keeps the repo text-only)
+/scripts/.cache/
+
+# OS / editor noise
+Thumbs.db
+desktop.ini
+.DS_Store
