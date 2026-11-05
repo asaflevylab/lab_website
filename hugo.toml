@@ -3,7 +3,17 @@
 # Deliberately plain: no theme, no modules, no npm. Everything the site needs is
 # in this repo, so a `hugo` binary years from now still builds it.
 
-baseURL = "/"
+# Absolute, and set HERE rather than passed as `hugo -b $CF_PAGES_URL` on the
+# Cloudflare build command: that variable is the PER-DEPLOYMENT hostname, so the
+# build was writing https://<hash>.levylab.pages.dev into sitemap.xml and into
+# every alias page's redirect. Since /contact/ and /in-the-media/ are reachable
+# only by redirect, an old Wix inbound link landed a visitor on a frozen snapshot
+# that never updates again. Keeping it in the repo means go-live on
+# asaflevylab.com is a one-line edit here, with no dashboard visit.
+# Requires the Cloudflare build command to be plain `hugo` - a -b flag wins over
+# this value. Trade-off accepted: preview deploys now also emit these absolute
+# URLs, which is harmless for an unlinked preview.
+baseURL = "https://levylab.pages.dev/"
 locale = "en-gb"
 title = "Levy Lab"
 enableRobotsTXT = true

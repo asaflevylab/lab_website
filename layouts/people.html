@@ -11,6 +11,16 @@
 
      The person is bound to $person before the `with` block, because inside it
      the dot is the image resource, not the roster entry. */}}
+
+{{/* The grid cell is square, so every photo is cropped to a square. The 31
+     rescued sources run from tight headshots to faces cut out of group shots,
+     so no single fixed anchor serves them all: `Smart` runs Hugo's smartcrop,
+     which scores candidate windows and keeps the subject. Where it still lands
+     wrong, that one person carries an optional `crop:` anchor in people.yaml,
+     which overrides Smart for that entry only. Cropping here rather than in
+     CSS also means the delivered pixels are the pixels shown. */}}
+{{ $anchors := slice "Smart" "Center" "Top" "TopLeft" "TopRight" "Left" "Right" "Bottom" "BottomLeft" "BottomRight" }}
+
 {{ range $section := slice "current" "alumni" }}
   {{ with index hugo.Data.people $section }}
   <section class="people" aria-labelledby="people-{{ $section }}">
@@ -19,7 +29,12 @@
       {{ range $person := . }}
       <li class="person">
         {{ with $img := resources.Get $person.photo }}
-          {{ $small := $img.Resize "420x webp q82" }}
+          {{ $anchor := default "Smart" $person.crop }}
+          {{ if not (in $anchors $anchor) }}
+            {{ warnf "people.yaml: crop: %q is not a Hugo anchor for %s - using Smart. Valid: %s" $anchor $person.name (delimit $anchors ", ") }}
+            {{ $anchor = "Smart" }}
+          {{ end }}
+          {{ $small := $img.Fill (printf "420x420 webp q82 %s" $anchor) }}
           <img src="{{ $small.RelPermalink }}" width="{{ $small.Width }}" height="{{ $small.Height }}"
                alt="{{ $person.name }}" loading="lazy">
         {{ else }}

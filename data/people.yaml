@@ -1,6 +1,10 @@
 # Lab roster recovered from the Wix site by wix_people_extract.py
 # photo = path under the rescued-assets directory
 # wix_* fields are provenance; drop them once the rebuild is verified
+# crop = OPTIONAL. The photo is cropped to a square by Hugo's content-aware
+#        `Smart` anchor. Add crop: only when Smart gets that one person wrong;
+#        one word, from Top TopLeft TopRight Left Right Bottom BottomLeft
+#        BottomRight Center. Anything else logs a warning and falls back to Smart.
 
 current:
   - name: "Associate Prof. Asaf Levy"
