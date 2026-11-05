@@ -18,8 +18,12 @@
 {{ end }}
 <p class="gallery-count">{{ len $images }} photos</p>
 <ul class="gallery">
+  {{/* AutoOrient first: phone photos are often stored sideways with an EXIF
+       "rotate me" flag, which Resize ignores - one of the original 25 showed
+       sideways until 2026-11-05. Applying it here covers any photo dropped in
+       later without anyone having to fix the file. */}}
   {{ range $images }}
-    {{ $thumb := .Resize "520x webp q80" }}
+    {{ $thumb := (. | images.Filter images.AutoOrient).Resize "520x webp q80" }}
     <li><img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}"
              height="{{ $thumb.Height }}" alt="" loading="lazy"></li>
   {{ end }}
