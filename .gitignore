@@ -10,3 +10,7 @@
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Figure snips waiting to be ingested - full figures of paywalled papers must
+# never reach the public repo; only the chosen crop is copied into assets/.
+/_pick/

@@ -1,8 +1,12 @@
 # Publications recovered from the Wix site by wix_publications_extract.py
 # and resolved against Crossref by crossref_resolve.py.
 #
-# To add a paper: append an entry with just its doi, then re-run
-# crossref_resolve.py to fill in the rest.
+# To add a paper: copy an existing entry and fill it from the paper's Crossref
+# record (https://api.crossref.org/works/<doi>). Do NOT re-run crossref_resolve.py
+# over this file: it rebuilds every record from the Wix TSV, so it would drop all
+# figure_* fields and the 2026-09 preprint, and bring back the 2021 bioRxiv
+# 'Systematic Discovery of Antibacterial and Antifungal Bacterial Toxins', removed
+# 2026-11-05 because it is the preprint of the Nature Microbiology 2024 paper.
 #   raw          = the citation exactly as the old Wix site printed it (audit trail)
 #   lab_members  = names the Wix page showed in bold; empty on the older entries
 #   co_first     = the citation marked co-first authors with an asterisk
@@ -10,8 +14,10 @@
 #   match_score  = share of the Crossref title's words found in the Wix line
 #   figure          = OPTIONAL image under assets/, shown left of the title. Missing
 #                     = a plain frame, so the column stays aligned.
-#   figure_label    = which figure of the paper it is (Fig. 1 by default; swap freely)
-#   figure_source   = where the file was taken from
+#   figure_label    = which figure of the paper it is, as chosen by Erez 2026-11-05
+#   figure_crop     = OPTIONAL x0,y0,x1,y1 in pixels of figure_source - the panel shown
+#   figure_source   = where the file was taken from. scripts/pub_figures.py rebuilds
+#                     every thumbnail from figure_source + figure_crop
 #   figure_licence  = the licence it was reused under. CC BY / CC BY-NC are clear.
 #                     'not CC' means the paper is under copyright and the reuse rests
 #                     on that publisher's author-reuse terms - check before adding more.
@@ -22,6 +28,33 @@
 
 publications:
   - year: "2026"
+    title: "Genome-wide Identification of Type VI Secretion System Effectors via Machine Learning Uncovers Three New Bacterial Toxins"
+    journal: "bioRxiv"
+    doi: "10.64898/2026.09.28.754971"
+    url: "https://www.biorxiv.org/content/10.64898/2026.09.28.754971v1"
+    co_first: false
+    is_preprint: true
+    figure: "publications/figures/10.64898_2026.09.28.754971.jpg"
+    figure_label: "Figure 4"
+    figure_source: "https://www.biorxiv.org/content/biorxiv/early/2026/09/28/2026.09.28.754971/F4.large.jpg"
+    figure_licence: "CC BY-ND - shown whole; ND forbids cropping"
+    authors:
+      - "Avital Akerman-Arad"
+      - "Aleks Danov"
+      - "Yuval Chausho"
+      - "Aya Friedman"
+      - "Shai Benedict"
+      - "Maor Shalom"
+      - "Tal Fisher"
+      - "Rina Fraenkel"
+      - "Gideon Mamou"
+      - "Yaara Oppenheimer-Shaanan"
+      - "Netanel Tzarum"
+      - "Asaf Levy"
+    lab_members: []
+    resolved_by: "doi-stated - added by hand 2026-11-05, not on the Wix site"
+    match_score: 1.0
+  - year: "2026"
     title: "A comprehensive catalogue of receptor-binding domains in extracellular contractile injection systems"
     journal: "Nature Communications"
     doi: "10.1038/s41467-026-68710-y"
@@ -29,8 +62,9 @@ publications:
     co_first: false
     is_preprint: false
     figure: "publications/figures/10.1038_s41467-026-68710-y.jpg"
-    figure_label: "Fig. 1"
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC12923769.1/41467_2026_68710_Fig1_HTML.jpg"
+    figure_label: "Fig. 2b"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC12923769.1/41467_2026_68710_Fig2_HTML.jpg"
+    figure_crop: "0,172,799,436"
     figure_licence: "CC BY"
     authors:
       - "Nimrod Nachmias"
@@ -53,6 +87,10 @@ publications:
     url: "https://doi.org/10.1016/j.mib.2026.102781"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1016_j.mib.2026.102781.jpg"
+    figure_label: "Figure 1"
+    figure_source: "https://ars.els-cdn.com/content/image/1-s2.0-S1369527426000755-gr1.jpg"
+    figure_licence: "CC BY"
     authors:
       - "Erez Weisberg"
       - "Aya Friedman"
@@ -74,6 +112,10 @@ publications:
     url: "https://www.cell.com/trends/microbiology/fulltext/S0966-842X(24)00316-0"
     co_first: true
     is_preprint: false
+    figure: "publications/figures/10.1016_j.tim.2024.11.013.jpg"
+    figure_label: "Figure 1"
+    figure_source: "https://ars.els-cdn.com/content/image/1-s2.0-S0966842X24003160-gr1.jpg"
+    figure_licence: "not CC - rests on the publisher author-reuse terms"
     authors:
       - "Shani Cheskis"
       - "Avital Akerman"
@@ -92,6 +134,11 @@ publications:
     url: "https://www.cell.com/cell/fulltext/S0092-8674(25)00198-9"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1016_j.cell.2025.02.013.jpg"
+    figure_label: "Figure 3A"
+    figure_source: "https://ars.els-cdn.com/content/image/1-s2.0-S0092867425001989-gr3.jpg"
+    figure_crop: "0,0,762,288"
+    figure_licence: "CC BY"
     authors:
       - "Rui Dai"
       - "Jingying Zhang"
@@ -125,8 +172,9 @@ publications:
     co_first: false
     is_preprint: false
     figure: "publications/figures/10.1186_s13059-025-03641-3.jpg"
-    figure_label: "Fig. 1"
+    figure_label: "Fig. 1a"
     figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC12153167.1/13059_2025_3641_Fig1_HTML.jpg"
+    figure_crop: "0,0,709,282"
     figure_licence: "CC BY"
     authors:
       - "Avi Bograd"
@@ -146,10 +194,10 @@ publications:
     url: "https://journals.asm.org/doi/10.1128/mbio.01911-23"
     co_first: true
     is_preprint: false
-    figure: "publications/figures/10.1128_mbio.01911-23.jpg"
-    figure_label: "FIG 1"
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC10790787.1/mbio.01911-23.f001.jpg"
-    figure_licence: "CC BY"
+    figure: "publications/figures/10.1128_mbio.01911-23.jpeg"
+    figure_label: "Toxinome logo"
+    figure_source: "https://toxinome.pythonanywhere.com/static/imgs/toxinome_logo.jpeg"
+    figure_licence: "the lab's own artwork - Toxinome web server logo, not a paper figure"
     authors:
       - "Aleks Danov"
       - "Ofir Segev"
@@ -174,8 +222,8 @@ publications:
     co_first: false
     is_preprint: false
     figure: "publications/figures/10.1038_s44320-024-00035-8.jpg"
-    figure_label: "Figure 1"
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC11148199.1/44320_2024_35_Fig1_HTML.jpg"
+    figure_label: "Figure EV1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC11148199.1/44320_2024_35_Fig2_HTML.jpg"
     figure_licence: "CC BY"
     authors:
       - "Alexander M Geller"
@@ -198,8 +246,8 @@ publications:
     co_first: false
     is_preprint: false
     figure: "publications/figures/10.1093_ismeco_ycae073.jpg"
-    figure_label: "Figure 1"
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC11131428.1/ycae073f1.jpg"
+    figure_label: "Figure 3"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC11131428.1/ycae073f3.jpg"
     figure_licence: "CC BY"
     authors:
       - "Shelly Haimlich"
@@ -223,8 +271,8 @@ publications:
     co_first: true
     is_preprint: false
     figure: "publications/figures/10.1038_s44320-024-00053-6.jpg"
-    figure_label: "Fig. 1"
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC11297309.1/44320_2024_53_Figa_HTML.jpg"
+    figure_label: "Figure 6"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC11297309.1/44320_2024_53_Fig7_HTML.jpg"
     figure_licence: "CC BY"
     authors:
       - "Aleks Danov"
@@ -250,6 +298,10 @@ publications:
     url: "https://www.nature.com/articles/s41564-024-01820-9"
     co_first: true
     is_preprint: false
+    figure: "publications/figures/10.1038_s41564-024-01820-9.jpg"
+    figure_label: "Extended Data Fig. 2"
+    figure_source: "https://media.springernature.com/lw1200/springer-static/esm/art%3A10.1038%2Fs41564-024-01820-9/MediaObjects/41564_2024_1820_Fig8_ESM.jpg"
+    figure_licence: "not CC - rests on the publisher author-reuse terms"
     authors:
       - "Nimrod Nachmias"
       - "Noam Dotan"
@@ -290,6 +342,10 @@ publications:
     url: "https://www.sciencedirect.com/science/article/pii/S1369527423000206"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1016_j.mib.2023.102283.jpg"
+    figure_label: "Figure 1"
+    figure_source: "https://ars.els-cdn.com/content/image/1-s2.0-S1369527423000206-gr1.jpg"
+    figure_licence: "not CC - rests on the publisher author-reuse terms"
     authors:
       - "Alexander M Geller"
       - "Asaf Levy"
@@ -308,8 +364,8 @@ publications:
     co_first: true
     is_preprint: false
     figure: "publications/figures/10.1093_nar_gkab1115.jpg"
-    figure_label: "Figure 1."
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC8860608.1/gkab1115fig1.jpg"
+    figure_label: "Figure 4"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC8860608.1/gkab1115fig4.jpg"
     figure_licence: "CC BY"
     authors:
       - "William B Andreopoulos"
@@ -336,8 +392,8 @@ publications:
     co_first: false
     is_preprint: false
     figure: "publications/figures/10.1038_s41467-021-23777-7.jpg"
-    figure_label: "Fig. 1"
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC8213781.1/41467_2021_23777_Fig1_HTML.jpg"
+    figure_label: "Fig. 7"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC8213781.1/41467_2021_23777_Fig7_HTML.jpg"
     figure_licence: "CC BY"
     authors:
       - "Alexander Martin Geller"
@@ -363,6 +419,10 @@ publications:
     url: "https://www.biorxiv.org/content/10.1101/2021.10.07.463556v1"
     co_first: false
     is_preprint: true
+    figure: "publications/figures/10.1101_2021.10.07.463556.jpg"
+    figure_label: "Figure 3"
+    figure_source: "https://www.biorxiv.org/content/biorxiv/early/2021/10/07/2021.10.07.463556/F3.large.jpg"
+    figure_licence: "CC BY-ND - shown whole; ND forbids cropping"
     authors:
       - "Alexander Martin Geller"
       - "David Zlotkin"
@@ -374,38 +434,6 @@ publications:
     match_score: 1.0
     raw: "Geller AM, Zlotkin D, Levy A. Large-scale discovery of candidate type VI secretion effectors with antibacterial activity. bioRxiv 2021 2021.10.07.463556. https://www.biorxiv.org/content/10.1101/2021.10.07.463556v1"
 
-  - year: "2021"
-    title: "Systematic Discovery of Antibacterial and Antifungal Bacterial Toxins"
-    journal: "bioRxiv"
-    doi: "10.1101/2021.10.19.465003"
-    url: "https://www.biorxiv.org/content/10.1101/2021.10.19.465003v2"
-    co_first: true
-    is_preprint: true
-    authors:
-      - "Nimrod Nachmias"
-      - "Noam Dotan"
-      - "Rina Fraenkel"
-      - "Marina Campos Rocha"
-      - "Monika Kluzek"
-      - "Maor Shalom"
-      - "Arbel Rivitz"
-      - "Naama Shamash-Halevy"
-      - "Inbar Cahana"
-      - "Noam Deouell"
-      - "Jacob Klein"
-      - "Neta Schlezinger"
-      - "Netanel Tzarum"
-      - "Yaara Oppenheimer-Shaanan"
-      - "Asaf Levy"
-    lab_members:
-      - "Nachmias N*, Dotan N*,"
-      - "Shalom M, Rivitz A, Shamash-Halevy N,"
-      - "Oppenheimer-Shaanan Y, Levy A."
-    wix_entry: 12
-    resolved_by: "doi-stated"
-    match_score: 1.0
-    raw: "Nachmias N*, Dotan N*, Fraenkel R, Campos Rocha M, Kluzek M, Shalom M, Rivitz A, Shamash-Halevy N, Cahana I, Deouell N, Klein K, Schlezinger N, Tzarum N, Oppenheimer-Shaanan Y, Levy A. Systematic Discovery of Antibacterial and Antifungal Bacterial Toxins. bioRxiv 2021 2021.10.19.465003v2 https://www.biorxiv.org/content/10.1101/2021.10.19.465003v2"
-
   - year: "2020"
     title: "AzeR, a transcriptional regulator that responds to azelaic acid in Pseudomonas nitroreducens"
     journal: "Microbiology"
@@ -414,8 +442,8 @@ publications:
     co_first: false
     is_preprint: false
     figure: "publications/figures/10.1099_mic.0.000865.jpg"
-    figure_label: "Fig. 1."
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC7398562.1/mic-166-73-g001.jpg"
+    figure_label: "Fig. 3"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC7398562.1/mic-166-73-g003.jpg"
     figure_licence: "CC BY-NC"
     authors:
       - "Cristina Bez"
@@ -467,8 +495,8 @@ publications:
     co_first: false
     is_preprint: false
     figure: "publications/figures/10.1128_aem.00622-20.jpg"
-    figure_label: "FIG 1"
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC7301841.1/AEM.00622-20-f0001.jpg"
+    figure_label: "FIG 4"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC7301841.1/AEM.00622-20-f0004.jpg"
     figure_licence: "CC BY"
     authors:
       - "Susan Mosquito"
@@ -518,8 +546,9 @@ publications:
     co_first: true
     is_preprint: false
     figure: "publications/figures/10.1038_s41588-017-0012-9.jpg"
-    figure_label: "Figure 1"
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC5957079.1/nihms919739f1.jpg"
+    figure_label: "Figure 5b"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC5957079.1/nihms919739f5.jpg"
+    figure_crop: "0,355,750,1050"
     figure_licence: "not CC - rests on the publisher author-reuse terms"
     authors:
       - "Asaf Levy"
@@ -565,6 +594,10 @@ publications:
     url: "https://www.sciencedirect.com/science/article/pii/S193131281830489X"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1016_j.chom.2018.09.005.jpg"
+    figure_label: "Figure 2"
+    figure_source: "https://ars.els-cdn.com/content/image/1-s2.0-S193131281830489X-gr2.jpg"
+    figure_licence: "not CC - rests on the publisher author-reuse terms"
     authors:
       - "Asaf Levy"
       - "Jonathan M. Conway"
@@ -609,8 +642,8 @@ publications:
     co_first: true
     is_preprint: false
     figure: "publications/figures/10.1038_nature14302.jpg"
-    figure_label: "Figure 1"
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC4561520.1/emss-62175-f0001.jpg"
+    figure_label: "Figure 5"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC4561520.1/emss-62175-f0005.jpg"
     figure_licence: "not CC - rests on the publisher author-reuse terms"
     authors:
       - "Asaf Levy"
@@ -636,6 +669,10 @@ publications:
     url: "https://www.sciencedirect.com/science/article/pii/S1097276513003705"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1016_j.molcel.2013.05.007.jpg"
+    figure_label: "Graphical abstract"
+    figure_source: "https://ars.els-cdn.com/content/image/1-s2.0-S1097276513003705-fx1.jpg"
+    figure_licence: "not CC - rests on the publisher author-reuse terms"
     authors:
       - "Ze’ev Melamed"
       - "Asaf Levy"
@@ -735,10 +772,6 @@ publications:
     url: "https://doi.org/10.1093/nar/gkp1134"
     co_first: false
     is_preprint: false
-    figure: "publications/figures/10.1093_nar_gkp1134.jpg"
-    figure_label: "Figure 1."
-    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC2836564.1/gkp1134f1.jpg"
-    figure_licence: "CC BY-NC"
     authors:
       - "Asaf Levy"
       - "Schraga Schwartz"
