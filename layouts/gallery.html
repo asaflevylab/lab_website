@@ -4,28 +4,73 @@
   {{ .Content }}
 </article>
 
-{{/* Every image under the directory named in `gallery_dir`, so adding a photo is
-     dropping a file in - no list to maintain. The Wix originals carry no
-     captions and their alt text was only the filename again, so the images are
-     marked decorative (empty alt) rather than given a fake description: a
-     screen reader skips them instead of reading out a hash. */}}
-{{ $dir := .Params.gallery_dir }}
-{{ $images := slice }}
-{{ range (resources.Match (printf "%s/*" $dir)) }}
-  {{ if in (slice "image/jpeg" "image/png" "image/webp") .MediaType.Type }}
-    {{ $images = $images | append . }}
+{{/* Lab Life as chapters (decided 2026-11-05): each chapter is one folder under
+     assets/<gallery_dir>/, listed in the page's front matter with a title, a
+     one-line intro and a cover photo. Adding a photo is dropping a file into
+     the right folder - no list to maintain.
+
+     The Wix originals carry no captions, so photos are marked decorative
+     (empty alt) rather than given a fake description; the chapter title is
+     the text a screen reader gets.
+
+     AutoOrient before every resize: phone photos are often stored sideways
+     with an EXIF "rotate me" flag that Resize ignores - one of the original
+     photos showed sideways until 2026-11-05. */}}
+{{ $root := .Params.gallery_dir }}
+{{ $isPhoto := slice "image/jpeg" "image/png" "image/webp" }}
+
+<nav class="chapter-nav" aria-label="Chapters">
+  {{ range .Params.chapters }}<a href="#{{ .dir }}">{{ .title }}</a>{{ end }}
+</nav>
+
+{{ range .Params.chapters }}
+  {{ $chapter := . }}
+  {{ $cover := resources.Get (printf "%s/%s/%s" $root .dir .cover) }}
+  {{ if not $cover }}{{ warnf "lab-life.md: cover %q not found in %s/%s" .cover $root .dir }}{{ end }}
+  {{ $photos := slice }}
+  {{ range resources.Match (printf "%s/%s/*" $root .dir) }}
+    {{ if and (in $isPhoto .MediaType.Type) (ne (path.Base .Name) $chapter.cover) }}
+      {{ $photos = $photos | append . }}
+    {{ end }}
   {{ end }}
+  <section class="chapter" id="{{ .dir }}" aria-labelledby="{{ .dir }}-title">
+    {{ with $cover }}
+      {{ $hero := (. | images.Filter images.AutoOrient).Fill (printf "1600x640 webp q80 %s" (default "Smart" $chapter.cover_anchor)) }}
+      <img class="chapter-cover" src="{{ $hero.RelPermalink }}" width="{{ $hero.Width }}"
+           height="{{ $hero.Height }}" alt="" loading="lazy">
+    {{ end }}
+    <header class="chapter-head">
+      <h2 id="{{ .dir }}-title">{{ .title }}</h2>
+      <p class="chapter-line">{{ .line }}</p>
+      <p class="gallery-count">{{ add (len $photos) (cond (ne $cover nil) 1 0) }} photos</p>
+    </header>
+    <ul class="gallery">
+      {{ range $photos }}
+        {{ $thumb := (. | images.Filter images.AutoOrient).Resize "520x webp q80" }}
+        <li><img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}"
+                 height="{{ $thumb.Height }}" alt="" loading="lazy"></li>
+      {{ end }}
+    </ul>
+  </section>
 {{ end }}
-<p class="gallery-count">{{ len $images }} photos</p>
-<ul class="gallery">
-  {{/* AutoOrient first: phone photos are often stored sideways with an EXIF
-       "rotate me" flag, which Resize ignores - one of the original 25 showed
-       sideways until 2026-11-05. Applying it here covers any photo dropped in
-       later without anyone having to fix the file. */}}
-  {{ range $images }}
-    {{ $thumb := (. | images.Filter images.AutoOrient).Resize "520x webp q80" }}
-    <li><img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}"
-             height="{{ $thumb.Height }}" alt="" loading="lazy"></li>
-  {{ end }}
-</ul>
+
+{{/* Safety net: a photo dropped straight into assets/<gallery_dir>/ instead of
+     a chapter folder is still shown, and the build says so. */}}
+{{ $loose := slice }}
+{{ range resources.Match (printf "%s/*" $root) }}
+  {{ if in $isPhoto .MediaType.Type }}{{ $loose = $loose | append . }}{{ end }}
+{{ end }}
+{{ with $loose }}
+  {{ warnf "lab life: %d photo(s) not in a chapter folder - shown under More photos" (len .) }}
+  <section class="chapter" id="more" aria-labelledby="more-title">
+    <header class="chapter-head"><h2 id="more-title">More photos</h2></header>
+    <ul class="gallery">
+      {{ range . }}
+        {{ $thumb := (. | images.Filter images.AutoOrient).Resize "520x webp q80" }}
+        <li><img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}"
+                 height="{{ $thumb.Height }}" alt="" loading="lazy"></li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}
 {{ end }}

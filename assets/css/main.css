@@ -338,6 +338,39 @@ main { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter) 4re
   background: var(--indigo-tint);
 }
 
+/* Chapters (2026-11-05): a jump row, then per chapter one wide cover photo,
+   the title, a one-line intro and that chapter's wall. The cover is the only
+   cropped image on the page - a 5:2 band, Smart-cropped by Hugo - because a
+   chapter opener has to be one shape to read as a series. */
+.chapter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0 0 2.5rem;
+}
+.chapter-nav a {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--grey-dark);
+  text-decoration: none;
+  border-bottom: 2px solid var(--green);   /* graphic use of the green, not text */
+  padding-bottom: 0.1rem;
+}
+.chapter-nav a:hover { color: var(--indigo); border-bottom-color: var(--indigo); }
+.chapter { margin: 0 0 4rem; scroll-margin-top: 1rem; }
+.chapter-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 2;
+  object-fit: cover;
+  background: var(--indigo-tint);
+}
+.chapter-head { margin: 1.25rem 0 1.5rem; }
+.chapter-head h2 { margin: 0 0 0.25rem; font-size: 2rem; }
+.chapter-line { margin: 0 0 0.25rem; font-size: 1.125rem; font-style: italic; color: var(--grey-dark); }
+
 /* ---- footer ---- */
 .affiliation { list-style: none; margin: 0 0 0.5rem; padding: 0; }
 .affiliation li { margin: 0.1rem 0; }
