@@ -27,12 +27,32 @@
   {{ $chapter := . }}
   {{ $cover := resources.Get (printf "%s/%s/%s" $root .dir .cover) }}
   {{ if not $cover }}{{ warnf "lab-life.md: cover %q not found in %s/%s" .cover $root .dir }}{{ end }}
-  {{ $photos := slice }}
+  {{/* Wall order: the chapter's `order` list first (set on the Lab Life
+       Sorter board), then any photo in the folder the list doesn't name yet,
+       by file name - so a newly dropped photo still shows. A listed photo
+       that is no longer in the folder is skipped, and the build says so. */}}
+  {{ $inFolder := dict }}
   {{ range resources.Match (printf "%s/%s/*" $root .dir) }}
-    {{ if and (in $isPhoto .MediaType.Type) (ne (path.Base .Name) $chapter.cover) }}
-      {{ $photos = $photos | append . }}
-    {{ end }}
+    {{ if in $isPhoto .MediaType.Type }}{{ $inFolder = merge $inFolder (dict (path.Base .Name) .) }}{{ end }}
   {{ end }}
+  {{ $photos := slice }}
+  {{ $listed := slice }}
+  {{ range .order }}
+    {{ with index $inFolder . }}
+      {{ $photos = $photos | append . }}
+    {{ else }}
+      {{ warnf "lab-life.md: %q is in the %s order but not in its folder" . $chapter.dir }}
+    {{ end }}
+    {{ $listed = $listed | append . }}
+  {{ end }}
+  {{ range $name, $res := $inFolder }}
+    {{ if not (in $listed $name) }}{{ $photos = $photos | append $res }}{{ end }}
+  {{ end }}
+  {{ $wall := slice }}
+  {{ range $photos }}
+    {{ if ne (path.Base .Name) $chapter.cover }}{{ $wall = $wall | append . }}{{ end }}
+  {{ end }}
+  {{ $photos = $wall }}
   <section class="chapter" id="{{ .dir }}" aria-labelledby="{{ .dir }}-title">
     {{ with $cover }}
       {{ $hero := (. | images.Filter images.AutoOrient).Fill (printf "1600x640 webp q80 %s" (default "Smart" $chapter.cover_anchor)) }}
