@@ -8,6 +8,13 @@
 #   co_first     = the citation marked co-first authors with an asterisk
 #   is_preprint  = Crossref type posted-content; journal holds the server name
 #   match_score  = share of the Crossref title's words found in the Wix line
+#   figure          = OPTIONAL image under assets/, shown left of the title. Missing
+#                     = a plain frame, so the column stays aligned.
+#   figure_label    = which figure of the paper it is (Fig. 1 by default; swap freely)
+#   figure_source   = where the file was taken from
+#   figure_licence  = the licence it was reused under. CC BY / CC BY-NC are clear.
+#                     'not CC' means the paper is under copyright and the reuse rests
+#                     on that publisher's author-reuse terms - check before adding more.
 #
 # A title may contain <i>...</i> - Crossref italicises species names, which is
 # correct typography for us. The template must therefore render title as HTML
@@ -21,6 +28,10 @@ publications:
     url: "https://doi.org/10.1038/s41467-026-68710-y"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1038_s41467-026-68710-y.jpg"
+    figure_label: "Fig. 1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC12923769.1/41467_2026_68710_Fig1_HTML.jpg"
+    figure_licence: "CC BY"
     authors:
       - "Nimrod Nachmias"
       - "Zhiren Wang"
@@ -113,6 +124,10 @@ publications:
     url: "https://genomebiology.biomedcentral.com/articles/10.1186/s13059-025-03641-3"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1186_s13059-025-03641-3.jpg"
+    figure_label: "Fig. 1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC12153167.1/13059_2025_3641_Fig1_HTML.jpg"
+    figure_licence: "CC BY"
     authors:
       - "Avi Bograd"
       - "Yaara Oppenheimer-Shaanan"
@@ -131,6 +146,10 @@ publications:
     url: "https://journals.asm.org/doi/10.1128/mbio.01911-23"
     co_first: true
     is_preprint: false
+    figure: "publications/figures/10.1128_mbio.01911-23.jpg"
+    figure_label: "FIG 1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC10790787.1/mbio.01911-23.f001.jpg"
+    figure_licence: "CC BY"
     authors:
       - "Aleks Danov"
       - "Ofir Segev"
@@ -154,6 +173,10 @@ publications:
     url: "https://www.embopress.org/doi/full/10.1038/s44320-024-00035-8"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1038_s44320-024-00035-8.jpg"
+    figure_label: "Figure 1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC11148199.1/44320_2024_35_Fig1_HTML.jpg"
+    figure_licence: "CC BY"
     authors:
       - "Alexander M Geller"
       - "Maor Shalom"
@@ -174,6 +197,10 @@ publications:
     url: "https://academic.oup.com/ismecommun/article/4/1/ycae073/7671050?login=false"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1093_ismeco_ycae073.jpg"
+    figure_label: "Figure 1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC11131428.1/ycae073f1.jpg"
+    figure_licence: "CC BY"
     authors:
       - "Shelly Haimlich"
       - "Yulia Fridman"
@@ -195,6 +222,10 @@ publications:
     url: "https://www.embopress.org/doi/full/10.1038/s44320-024-00053-6"
     co_first: true
     is_preprint: false
+    figure: "publications/figures/10.1038_s44320-024-00053-6.jpg"
+    figure_label: "Fig. 1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC11297309.1/44320_2024_53_Figa_HTML.jpg"
+    figure_licence: "CC BY"
     authors:
       - "Aleks Danov"
       - "Inbal Pollin"
@@ -276,6 +307,10 @@ publications:
     url: "https://academic.oup.com/nar/article/50/3/e17/6454267"
     co_first: true
     is_preprint: false
+    figure: "publications/figures/10.1093_nar_gkab1115.jpg"
+    figure_label: "Figure 1."
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC8860608.1/gkab1115fig1.jpg"
+    figure_licence: "CC BY"
     authors:
       - "William B Andreopoulos"
       - "Alexander M Geller"
@@ -300,6 +335,10 @@ publications:
     url: "https://www.nature.com/articles/s41467-021-23777-7"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1038_s41467-021-23777-7.jpg"
+    figure_label: "Fig. 1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC8213781.1/41467_2021_23777_Fig1_HTML.jpg"
+    figure_licence: "CC BY"
     authors:
       - "Alexander Martin Geller"
       - "Inbal Pollin"
@@ -374,6 +413,10 @@ publications:
     url: "https://www.microbiologyresearch.org/content/journal/micro/10.1099/mic.0.000865"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1099_mic.0.000865.jpg"
+    figure_label: "Fig. 1."
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC7398562.1/mic-166-73-g001.jpg"
+    figure_licence: "CC BY-NC"
     authors:
       - "Cristina Bez"
       - "Sree Gowrinadh Javvadi"
@@ -423,6 +466,10 @@ publications:
     url: "https://journals.asm.org/doi/full/10.1128/aem.00622-20"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1128_aem.00622-20.jpg"
+    figure_label: "FIG 1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC7301841.1/AEM.00622-20-f0001.jpg"
+    figure_licence: "CC BY"
     authors:
       - "Susan Mosquito"
       - "Xianfa Meng"
@@ -448,6 +495,10 @@ publications:
     url: "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.589416/full"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.3389_fpls.2020.589416.jpg"
+    figure_label: "Figure 1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC7680756.1/fpls-11-589416-g001.jpg"
+    figure_licence: "CC BY"
     authors:
       - "Miriam Lucke"
       - "Mario Gabriel Correa"
@@ -466,6 +517,10 @@ publications:
     url: "https://www.nature.com/articles/s41588-017-0012-9"
     co_first: true
     is_preprint: false
+    figure: "publications/figures/10.1038_s41588-017-0012-9.jpg"
+    figure_label: "Figure 1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC5957079.1/nihms919739f1.jpg"
+    figure_licence: "not CC - rests on the publisher author-reuse terms"
     authors:
       - "Asaf Levy"
       - "Isai Salas Gonzalez"
@@ -553,6 +608,10 @@ publications:
     url: "https://www.nature.com/articles/nature14302"
     co_first: true
     is_preprint: false
+    figure: "publications/figures/10.1038_nature14302.jpg"
+    figure_label: "Figure 1"
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC4561520.1/emss-62175-f0001.jpg"
+    figure_licence: "not CC - rests on the publisher author-reuse terms"
     authors:
       - "Asaf Levy"
       - "Moran G. Goren"
@@ -676,6 +735,10 @@ publications:
     url: "https://doi.org/10.1093/nar/gkp1134"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1093_nar_gkp1134.jpg"
+    figure_label: "Figure 1."
+    figure_source: "https://pmc-oa-opendata.s3.amazonaws.com/PMC2836564.1/gkp1134f1.jpg"
+    figure_licence: "CC BY-NC"
     authors:
       - "Asaf Levy"
       - "Schraga Schwartz"

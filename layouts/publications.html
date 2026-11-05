@@ -24,6 +24,25 @@
     <ol class="pub-list">
       {{ range where $pubs "year" $year }}
       <li class="pub">
+        {{/* A figure from the paper sits left of the title (decided 2026-11-05).
+             The whole figure is fitted, never cropped: figures run from 660x185
+             to 694x1105, and a crop of a multi-panel figure lands on whatever
+             corner it lands on. A paper with no figure yet gets the same empty
+             frame, so every title starts at the same x.
+             The figure links to the paper too, but is hidden from keyboard and
+             screen readers: the title link already says the same thing, and a
+             second stop per row would double the tab count. */}}
+        <a class="pub-fig{{ if not .figure }} is-empty{{ end }}" href="{{ .url }}" rel="noopener" tabindex="-1" aria-hidden="true">
+          {{ with .figure }}
+            {{ with $img := resources.Get . }}
+              {{ $thumb := $img.Fit "440x330 webp q82" }}
+              <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="" loading="lazy">
+            {{ else }}
+              {{ warnf "publications.yaml: figure not found under assets/: %s" . }}
+            {{ end }}
+          {{ end }}
+        </a>
+        <div class="pub-body">
         <p class="pub-title">
           <a href="{{ .url }}" rel="noopener">{{ .title | safeHTML }}</a>
           {{ if .is_preprint }}<span class="pub-tag">preprint</span>{{ end }}
@@ -33,6 +52,7 @@
           <span class="pub-journal">{{ .journal }}</span>
           {{ with .doi }}<span class="pub-doi">doi:{{ . }}</span>{{ end }}
         </p>
+        </div>
       </li>
       {{ end }}
     </ol>
