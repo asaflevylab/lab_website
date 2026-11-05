@@ -73,16 +73,19 @@ a:hover { text-decoration: none; }
 
 /* ---- header / nav ---- */
 .site-header {
-  /* lab mark left; university mark top right with the nav under it. On a phone
-     the nav drops to its own full-width row so the two marks share the top. */
+  /* Lab mark left, university mark right, the nav centred between them
+     (Erez, 2026-11-05). `1fr auto 1fr` keeps the nav on the true centre of
+     the header even though the two marks differ in width. Below 64rem the nav
+     no longer fits beside them, so the marks share the top row and the nav
+     takes its own row, still centred. */
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-areas: "lab huji" "lab nav";
-  align-items: end;
-  gap: 0.75rem var(--gutter);
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "lab nav huji";
+  align-items: center;
+  gap: 1rem var(--gutter);
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1.5rem var(--gutter) 1rem;
+  padding: 1.25rem var(--gutter) 1rem;
   border-bottom: 2px solid var(--grey-line);
 }
 .site-title {
@@ -94,26 +97,36 @@ a:hover { text-decoration: none; }
   text-decoration: none;
   display: block;
   grid-area: lab;
-  align-self: center;
+  justify-self: start;
 }
 .huji-link { grid-area: huji; justify-self: end; display: block; }
-/* 2.94:1 after trimming the source's white margin. Logotype, so exempt from the
-   contrast floor like the lab mark. */
-.huji-logo { display: block; width: min(190px, 40vw); height: auto; }
-.site-nav { grid-area: nav; justify-self: end; }
-@media (max-width: 40rem) {
-  .site-header { grid-template-areas: "lab huji" "nav nav"; }
-  .huji-link { align-self: center; }
-  .site-nav { justify-self: start; }
+.site-nav { grid-area: nav; justify-self: center; }
+/* Both marks are sized by HEIGHT so they read as a pair: the lab mark is
+   2.10:1 (source 2475x1177) and the trimmed university mark 2.94:1, so equal
+   heights give unequal widths - which is the point; equal widths would make
+   the university mark look smaller. Logotypes, so both are exempt from the
+   text contrast floor - which is why the green marks are fine here while the
+   green is still barred from body text. */
+.site-logo, .huji-logo {
+  display: block;
+  height: 4.25rem;
+  width: auto;
+  max-width: 100%;
 }
-/* Wix rendered the mark at 183x87 (2.10:1); the source is 2475x1177, same ratio.
-   No contrast rule applies - WCAG exempts logotypes from the text contrast floor,
-   which is why the green mark is fine here while the green is still barred from
-   body text. */
-.site-logo { display: block; width: min(183px, 52vw); height: auto; }
+@media (max-width: 64rem) {
+  .site-header {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "lab huji" "nav nav";
+  }
+  .site-logo, .huji-logo { height: 3.5rem; }
+}
+@media (max-width: 30rem) {
+  .site-logo, .huji-logo { height: 2.75rem; }
+}
 .site-nav ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.25rem 1.1rem;
   list-style: none;
   margin: 0;
