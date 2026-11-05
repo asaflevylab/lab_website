@@ -15,6 +15,18 @@
       {{ site.Title }}
     {{- end -}}
   </a>
+  {{/* University mark, top right above the nav (added 2026-11-05; the Wix rescue
+       never captured it). Links to the university, so it opens a new site -
+       the alt text names the university, not "logo". */}}
+  {{- with resources.Get "brand/huji_logo.png" }}
+    {{ $huji := .Resize "440x webp q90" }}
+    <a class="huji-link" href="https://en.huji.ac.il/" rel="noopener">
+      <img class="huji-logo" src="{{ $huji.RelPermalink }}"
+           width="{{ $huji.Width }}" height="{{ $huji.Height }}" alt="The Hebrew University of Jerusalem">
+    </a>
+  {{- else }}
+    {{ warnf "header: assets/brand/huji_logo.png is missing" }}
+  {{- end }}
   <nav class="site-nav" aria-label="Main">
     <ul>
       {{- range site.Menus.main }}

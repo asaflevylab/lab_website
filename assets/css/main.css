@@ -73,10 +73,13 @@ a:hover { text-decoration: none; }
 
 /* ---- header / nav ---- */
 .site-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5rem var(--gutter);
+  /* lab mark left; university mark top right with the nav under it. On a phone
+     the nav drops to its own full-width row so the two marks share the top. */
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "lab huji" "lab nav";
+  align-items: end;
+  gap: 0.75rem var(--gutter);
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1.5rem var(--gutter) 1rem;
@@ -89,8 +92,19 @@ a:hover { text-decoration: none; }
   letter-spacing: 0.02em;
   color: var(--black);
   text-decoration: none;
-  margin-right: auto;
   display: block;
+  grid-area: lab;
+  align-self: center;
+}
+.huji-link { grid-area: huji; justify-self: end; display: block; }
+/* 2.94:1 after trimming the source's white margin. Logotype, so exempt from the
+   contrast floor like the lab mark. */
+.huji-logo { display: block; width: min(190px, 40vw); height: auto; }
+.site-nav { grid-area: nav; justify-self: end; }
+@media (max-width: 40rem) {
+  .site-header { grid-template-areas: "lab huji" "nav nav"; }
+  .huji-link { align-self: center; }
+  .site-nav { justify-self: start; }
 }
 /* Wix rendered the mark at 183x87 (2.10:1); the source is 2475x1177, same ratio.
    No contrast rule applies - WCAG exempts logotypes from the text contrast floor,
