@@ -11,7 +11,7 @@ description: "Photos from the lab."
 # assets/lab_life/ itself still shows, under "More photos", and the build warns.
 # `cover_anchor` (optional) pins the cover's crop when the automatic one misses
 # the people: Top, Bottom, Left, Right, Center... Default Smart.
-# The `line` texts are DRAFTS written 2026-11-05, waiting for Erez's wording.
+# The `line` texts were drafted by Claude and kept by Erez for now (2026-11-05).
 chapters:
   - dir: "trips-and-celebrations"
     title: "Trips & celebrations"
