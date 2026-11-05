@@ -6,6 +6,7 @@ Each record may carry:
     figure:         publications/figures/<doi>.jpg   (path under assets/ - the output)
     figure_source:  https://...                      (the image as the publisher serves it)
     figure_crop:    "x0,y0,x1,y1"                    (OPTIONAL, pixels of the source image)
+    figure_origin:  "snip"                           (OPTIONAL, see below)
 
 The yaml is the only record of which figure was chosen and which part of it is
 shown, so a thumbnail can always be rebuilt or re-cut from it - nothing on the
@@ -25,6 +26,14 @@ Where the sources come from (all observed working 2026-11-05)
                          pages return 403 to scripts; this CDN does not.
 * Springer Nature        media.springernature.com/lw1200/... (``/full/`` fails for ESM)
 * bioRxiv                .../F<N>.large.jpg from the full-text page
+
+Snips
+-----
+Some publishers serve nothing a script can fetch (APS / MPMI returns 403 on
+pages and images alike). Then Erez snips the figure from the paper and the file
+under assets/ IS the source: ``figure_origin: "snip"`` tells this script to
+check that the file exists and leave it alone, and ``figure_source`` holds the
+paper's URL so a reader knows where it was cut from.
 
 Usage
 -----
@@ -63,6 +72,7 @@ class FigureSpec:
     figure: str
     source: str
     crop: tuple[int, int, int, int] | None
+    snip: bool = False
 
 
 def field(block: str, name: str) -> str | None:
@@ -90,6 +100,7 @@ def read_specs(yaml_path: Path) -> list[FigureSpec]:
         if not src or not src.startswith("http"):
             problems.append(f"{doi}: figure set but no http figure_source")
             continue
+        snip = field(block, "figure_origin") == "snip"
         crop = None
         if (c := field(block, "figure_crop")):
             parts = [int(p) for p in c.split(",")]
@@ -97,7 +108,7 @@ def read_specs(yaml_path: Path) -> list[FigureSpec]:
                 problems.append(f"{doi}: figure_crop must be x0,y0,x1,y1 with x0<x1, y0<y1: {c}")
                 continue
             crop = tuple(parts)
-        specs.append(FigureSpec(doi, fig, src, crop))
+        specs.append(FigureSpec(doi, fig, src, crop, snip))
     if problems:
         raise SystemExit("publications.yaml:\n  " + "\n  ".join(problems))
     return specs
@@ -119,8 +130,13 @@ def fetch(url: str, cache: Path) -> Path:
 
 def build(spec: FigureSpec, cache: Path, assets: Path) -> str:
     """Write one thumbnail source under assets/; return a one-line report."""
-    raw = fetch(spec.source, cache)
     out = assets / spec.figure
+    if spec.snip:                                  # hand-made: nothing to fetch or cut
+        if not out.is_file():
+            raise RuntimeError(f"figure_origin is snip but {out} does not exist")
+        with Image.open(out) as im:
+            return f"{spec.doi:<34} snip     {im.size[0]}x{im.size[1]} (kept as committed)"
+    raw = fetch(spec.source, cache)
     out.parent.mkdir(parents=True, exist_ok=True)
     with Image.open(raw) as im:
         w, h = im.size

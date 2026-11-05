@@ -16,6 +16,8 @@
 #                     = a plain frame, so the column stays aligned.
 #   figure_label    = which figure of the paper it is, as chosen by Erez 2026-11-05
 #   figure_crop     = OPTIONAL x0,y0,x1,y1 in pixels of figure_source - the panel shown
+#   figure_origin   = OPTIONAL "snip": cut by hand from the paper because the publisher
+#                     blocks downloads; the file under assets/ is then the only copy
 #   figure_source   = where the file was taken from. scripts/pub_figures.py rebuilds
 #                     every thumbnail from figure_source + figure_crop
 #   figure_licence  = the licence it was reused under. CC BY / CC BY-NC are clear.
@@ -470,6 +472,11 @@ publications:
     url: "https://apsjournals.apsnet.org/doi/10.1094/MPMI-09-19-0256-R"
     co_first: false
     is_preprint: false
+    figure: "publications/figures/10.1094_MPMI-09-19-0256-R.jpg"
+    figure_label: "Fig. 4"
+    figure_source: "https://apsjournals.apsnet.org/doi/10.1094/MPMI-09-19-0256-R"
+    figure_origin: "snip"
+    figure_licence: "unverified - Crossref carries no licence for this paper; check the APS page"
     authors:
       - "Susan Mosquito"
       - "Iris Bertani"
